@@ -1,0 +1,66 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+/* Dekstop */
+.login-page {
+    margin: 160px;
+    margin-left: 580px;
+    margin-right: 580px;
+    width: 390px;
+    height: auto;
+    text-align: center;
+    padding: 20px;
+    border-radius: 20px;
+    border: 3px solid #1A3783;
+    box-shadow: 0px 0px 8px 1px rgba(107, 107, 107, 0.8);
+}
+.login-input-form {
+    border-radius: 17px;
+    border: 2px solid;
+    height: 40px;
+    width: 240px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border-color: hsl(223, 67%, 31%);
+    color: gray;
+    padding-left: 20px;
+}
+.btn-login-masuk {
+    width: 240px;
+    color: white;
+    background-color: #1A3783;
+    border: none;
+    border-radius: 18px;
+    height: 40px;
+    font-size: 17px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+.btn-login-masuk:hover {
+    background-color: #1A3783;
+    opacity: 0.8;
+    border: 2px solid  #F07F06;
+    transition: 0.2s;
+}
+.lupa-password {
+    text-decoration: none;
+}
+.lupa-password:hover{
+    color: #F07F06;
+    text-decoration: underline;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .login-page {
+        width: 290px;
+        margin-left: 32%;
+    }
+}
+@media (max-width: 368px) {
+    .login-page {
+        margin-left: 10%;
+    }
+}

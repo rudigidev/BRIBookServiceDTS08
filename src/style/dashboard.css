@@ -1,0 +1,158 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    background-color: #F3F1F1;
+}
+.container {
+    /* border:1px solid red; */
+    display: flex;
+}
+/* Side Menu */
+.side-menu {
+    /* border:1px solid black; */
+    width: 15%;
+    height: auto;
+    background-color: #1A3783;
+    color: white;
+}
+.user-level {
+    background-color: white;
+    text-align: center;
+    color: #1A3783;
+    padding: 5px;
+}
+.user-profile {
+    text-align: center;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    /* border-bottom: 2px solid white; */
+}
+.side-bri-logowhite {
+    text-align: center;
+}
+.side-user-menu {
+    text-align: justify;
+    padding:15px;
+    /* border: 1px solid red; */
+}
+.side-user-menu ul {
+    /* border: 1px solid red; */
+    width: 200px;
+}
+.side-user-menu ul li {
+    /* border: 1px solid red; */
+    list-style: none;
+    padding: 10px;
+    width: 200px;
+    border-radius: 20px;
+    padding-left: 40px;
+}
+.side-user-menu ul li i {
+    /* border: 1px solid red; */
+    position: relative;
+    top: 3px;
+    right: 5px;
+}
+.side-user-menu ul li:hover {
+    color:  #1A3783 ;
+    cursor: pointer;
+    background-color: white;
+}
+.side-user-menu ul li:active {
+    opacity: 0.5;
+}
+.side-logout {
+    padding-bottom: 110%;
+    text-align: center;
+}
+.btn-logout {
+    border: none;
+    color: #1A3783;
+    text-align: center;
+    background-color:white;
+    padding: 10px;
+    border-radius: 20px;
+    width: 200px;
+}
+.btn-logout:hover {
+    background-color: orange;
+    color: white;
+}
+/* Main Menu */
+.main-menu {
+    /* border:1px solid red; */
+    width: 85%;
+    height: auto;
+    display: flex;
+    padding: 20px;
+    text-align: center;
+    flex-wrap: wrap;
+}
+.row {
+    /* border: 1px solid red; */
+    margin: 20px;
+    width: 30%;
+    height: 30%;
+    border-radius: 20px;
+    background-color: white;
+    box-shadow: 0px 0px 5px 0.5px rgba(92, 92, 92, 0.5);
+}
+.col1 {
+    top: 10%;
+    height: 65%;
+    /* border: 1px solid red; */
+    background-color: white;
+    position: relative;
+    z-index: 1;
+    display: flex;
+    padding: 5px;
+}
+.icon-user {
+    /* border: 1px solid red; */
+    color: orange;
+    width: 40%;
+}
+.level-user {
+    /* border: 1px solid red; */
+    color: orange;
+    width: 60%;
+    font-size: 70px;
+    text-align: center;
+    padding: 10px;
+}
+.col2 {
+    height: 35%;
+    /* border: 1px solid red; */
+    background-color: #6EB1E1;
+    position: relative;
+    z-index: 0;
+    border-radius: 20px;
+    padding-top: 10%;
+    color: white;
+}
+.row2 {
+    width: 100%;
+    background-color: white;
+    margin: 20px;
+    margin-top: -220px;
+    border-radius: 20px;
+    padding: 10px;
+    color: orange;
+    box-shadow: 0px 0px 5px 0.5px rgba(92, 92, 92, 0.5);
+}
+.table-data-user {
+    margin: 10px auto;
+    border: none;
+}
+.table-data-user tr {
+    border: none;
+}
+.table-data-user tr th{
+    padding-left: 45px;
+    padding-right: 45px;
+    background-color: gray;
+    color: white;
+}
