@@ -1,5 +1,5 @@
 import React from 'react';
-import '../style/dashboard-PBAM-PBA.css';
+import '../style/dashboard.css';
 import briwhite from '../img/logobriwhite.png';
 import profile from '../img/imgprofile.png';
 import * as Icon from 'react-bootstrap-icons';
@@ -20,7 +20,7 @@ class DashboardPbamPba extends React.Component {
                     </div>
                     <div className="side-user-menu">
                         <ul>
-                            <li><i><Icon.PersonBadgeFill size={25} /></i>Kelola PBA</li>
+                            <li className="menu-selected"><i><Icon.PersonBadgeFill size={25} /></i>Kelola PBA</li>
                             <li><i><Icon.FileEarmarkTextFill size={25} /></i>Kelola Laporan</li>
                             <li><i><Icon.StarFill size={25} /></i>Feedback</li>
                         </ul>

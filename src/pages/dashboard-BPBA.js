@@ -1,8 +1,7 @@
 import React from 'react';
-import '../style/dashboard-BPBA.css';
+import '../style/dashboard.css';
 import briwhite from '../img/logobriwhite.png';
 import profile from '../img/imgprofile.png';
-import iconcard from '../img/img-cards.png';
 import * as Icon from 'react-bootstrap-icons';
 
 class DashboardBpba extends React.Component {
@@ -72,8 +71,7 @@ class DashboardBpba extends React.Component {
                     <div className="row2">
                         <div className="col4">
                         
-                       
-
+                        
                         </div>
                     </div>
                     {/* Data Passing Disini */}

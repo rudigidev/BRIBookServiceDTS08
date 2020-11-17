@@ -105,3 +105,142 @@ PBAM Tambah PCU for PBA
                                
                     </div>
                        
+PBAM Jadwal PBA
+                    <div className="tabel-user-data">
+                                <h2>Jadwal Pertemuan PBA</h2>
+                                <h3>Nama PBA : Revi Mariska</h3>
+                            <table className="table-data-user">
+                        <tr>
+                            <th>Nama PCU</th>
+                            <th>Tanggal</th>
+                            <th>Waktu</th>
+                            <th>Tempat</th>
+                            <th>Status</th>
+                            <th>Opsi</th>
+                        </tr>
+                        <tr>
+                            <td>Tuti Wardani</td>
+                            <td>15-11-2020</td>
+                            <td>13:00</td>
+                            <td>Kantor A</td>
+                            <td>Diterima</td>
+                            <td>
+                            <button className="btn-edit">Edit</button>
+                            </td>
+                            
+                        </tr>
+                        <tr>
+                            <td>Danang Mulyo</td>
+                            <td>12-11-2020</td>
+                            <td>10:00</td>
+                            <td>Kantor A</td>
+                            <td>Diterima</td>
+                            <td>
+                            <button className="btn-edit">Edit</button>
+                            </td>
+                            
+                        </tr>
+                        
+                    </table>
+                </div>
+
+PBAM Edit Jadwal PBA
+                <div className="form-tambah-edit-data">
+                            <h2 className="title">Edit Jadwal </h2>
+                            <label for="namapcu">Nama PCU</label>
+                            <span><h2 name="namapcu">Tuti Mardiyah</h2></span>
+                            <label>Tanggal</label>
+                            <input type="text"/>
+                            <label>Waktu</label>
+                            <input type="text"/>
+                            <label>Tempat</label>
+                            <input type="text"/>
+                            <label for="PBA">PBA</label>
+                            <select id="country" name="PBA">
+                                <option value="">Pilih PBA</option>
+                                <option value="1">Revi Mariska</option>
+                                <option value="2">Danang Mulyo</option>
+                                <option value="3">Ananda Rizky</option>
+                            </select>
+                            <label for="status">Status</label>
+                            <select id="country" name="status">
+                                <option value="">Status</option>
+                                <option value="1">Diterima</option>
+                                <option value="2">Ditolak</option>
+                            </select>
+                        
+                            <button className="btn-tambah">Simpan</button>
+                            <button className="btn-batal">Batal</button>
+                               
+                    </div>
+
+PBAM Laporan
+                    <div className="tabel-user-data">
+                                <h2>Jadwal Pertemuan</h2>
+                            <table className="table-data-user">
+                        <tr>
+                            <th>Nama PBA</th>
+                            <th>Nama PCU</th>
+                            <th>Tanggal</th>
+                            <th>Waktu</th>
+                            <th>Tempat</th>
+                            <th>Status</th>
+                            <th>Opsi</th>
+                        </tr>
+                        <tr>
+                            <td>Revi Mariska</td>
+                            <td>Tuti Wardani</td>
+                            <td>15-11-2020</td>
+                            <td>13:00</td>
+                            <td>Kantor A</td>
+                            <td>Diterima</td>
+                            <td>
+                            <button className="btn-edit">Edit</button>
+                            </td>
+                            
+                        </tr>
+                        <tr>
+                            <td>Ananda Rahma</td>
+                            <td>Danang Mulyo</td>
+                            <td>12-11-2020</td>
+                            <td>10:00</td>
+                            <td>Kantor A</td>
+                            <td>Selesai</td>
+                            <td>
+                            <button className="btn-edit">Edit</button>
+                            </td>
+                            
+                        </tr>
+                        
+                    </table>
+                </div>
+
+PBAM Laporan Edit 
+                 <div className="form-tambah-edit-data">
+                            <h2 className="title">Edit Jadwal </h2>
+                            <label for="namapcu">Nama PCU</label>
+                            <span><h2 name="namapcu">Tuti Mardiyah</h2></span>
+                            <label>Tanggal</label>
+                            <input type="text"/>
+                            <label>Waktu</label>
+                            <input type="text"/>
+                            <label>Tempat</label>
+                            <input type="text"/>
+                            <label for="PBA">PBA</label>
+                            <select id="country" name="PBA">
+                                <option value="">Pilih PBA</option>
+                                <option value="1">Revi Mariska</option>
+                                <option value="2">Danang Mulyo</option>
+                                <option value="3">Ananda Rizky</option>
+                            </select>
+                            <label for="status">Status</label>
+                            <select id="country" name="status">
+                                <option value="">Status</option>
+                                <option value="1">Diterima</option>
+                                <option value="2">Ditolak</option>
+                            </select>
+                        
+                            <button className="btn-tambah">Simpan</button>
+                            <button className="btn-batal">Batal</button>
+                               
+                </div>
