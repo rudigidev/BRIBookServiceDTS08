@@ -207,6 +207,46 @@ body {
     height: 45%;
     margin:1%;
 }
+.feedback-lihat {
+    /* border: 1px solid red; */
+}
+.feedback-row {
+    /* border: 1px solid blue; */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    height: 250px;
+}
+.feedback-foto{
+    /* border: 1px solid red; */
+    width: 30%;
+}
+.feedback-info{
+    /* border: 1px solid red; */
+    width: 30%;
+    text-align: center;
+}
+.feedfor {
+    text-align: center;
+}
+.feedback-stars{
+    /* border: 1px solid red; */
+    width: 30%;
+    font-size: 3em;
+}
+.textarea-feedback {
+    width: 90%;
+    border: 2px solid #1A3783;
+    border-radius: 10px;
+    height: 200px;
+    padding: 20px;
+    color: gray;
+    font-size: 15px;
+}
+.btn-feedback {
+    margin: 10px;
+}
 .col4 {
     height: 100%;
     box-sizing: border-box;
