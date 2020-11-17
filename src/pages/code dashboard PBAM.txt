@@ -1,0 +1,107 @@
+
+PBAM PBA Data
+
+<div className="tabel-user-data">
+                                <h2>Daftar PBA</h2>
+                            <table className="table-data-user">
+                        <tr>
+                            <th>Nama PBA</th>
+                            <th>Alamat</th>
+                            <th>No. Hp</th>
+                            <th>Status</th>
+                            <th>Daftar PCU</th>
+                            <th>Jadwal</th>
+                        </tr>
+                        <tr>
+                            <td>Revi Mariska</td>
+                            <td>Jl. Lorem Isum</td>
+                            <td>085xxxxxxxx</td>
+                            <td>Aktif</td>
+                            <td>
+                            <button className="btn-edit">Edit</button>
+                            </td>
+                            <td>
+                                <button className="btn-edit">Lihat</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Ananda Rahma</td>
+                            <td>Jl. Lorem Isum</td>
+                            <td>085xxxxxxxx</td>
+                            <td>Aktif</td>
+                            <td>
+                            <button className="btn-edit">Edit</button>
+                            </td>
+                            <td>
+                                <button className="btn-edit">Lihat</button>
+                            </td>
+                        </tr>
+                        
+                    </table>
+                </div>
+PBAM Daftar PCU
+               <div className="tabel-user-data">
+                                <h2>Daftar PCU</h2>
+                                <h3>Nama PBA : Revi Mariska</h3>
+                                <button className="btn-plus">+</button>
+                            <table className="table-data-user">
+                        <tr>
+                            <th>Nama PCU</th>
+                            <th>Alamat</th>
+                            <th>No. Hp</th>
+                            <th>Status</th>
+                            <th>Opsi</th>
+                        </tr>
+                        <tr>
+                            <td>Tuti Wardani</td>
+                            <td>Jl. Lorem Isum</td>
+                            <td>085xxxxxxxx</td>
+                            <td>Aktif</td>
+                            <td>
+                            <button className="btn-edit">Edit</button>
+                            </td>
+                            
+                        </tr>
+                        <tr>
+                            <td>Danang Mulyo</td>
+                            <td>Jl. Lorem Isum</td>
+                            <td>085xxxxxxxx</td>
+                            <td>Aktif</td>
+                            <td>
+                            <button className="btn-edit">Edit</button>
+                            </td>
+                            
+                        </tr>
+                        
+                    </table>
+                </div>
+
+PBAM Tambah PCU for PBA
+                    <div className="form-tambah-edit-data">
+                            <h2 className="title">Tambah Daftar PCU </h2>
+                            <label for="PCU">PCU</label>
+                            <select id="pcu" name="PCU">
+                                <option value="">Pilih PCU</option>
+                                <option value="1">Tuti Mardiyah</option>
+                                <option value="2">Baharudin</option>
+                                <option value="3">Ananda Rizky</option>
+                            </select>
+                            <label for="PBA">PBA</label>
+                            <select id="country" name="PBA">
+                                <option value="">Pilih PBA</option>
+                                <option value="1">Revi Mariska</option>
+                                <option value="2">Danang Mulyo</option>
+                                <option value="3">Ananda Rizky</option>
+                            </select>
+                            <label for="status">Status</label>
+                            <select id="country" name="status">
+                                <option value="">Status</option>
+                                <option value="1">Aktif</option>
+                                <option value="2">Disabled</option>
+                            </select>
+                        
+                            <button className="btn-tambah">Simpan</button>
+                            <button className="btn-batal">Batal</button>
+                               
+                    </div>
+                       

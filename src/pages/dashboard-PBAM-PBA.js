@@ -2,14 +2,13 @@ import React from 'react';
 import '../style/dashboard-PBAM-PBA.css';
 import briwhite from '../img/logobriwhite.png';
 import profile from '../img/imgprofile.png';
-import iconcard from '../img/img-cards.png';
 import * as Icon from 'react-bootstrap-icons';
 
 class DashboardPbamPba extends React.Component {
     render() {
         return(
             <div className="container">
-                
+
                 <div className="side-menu">
                     <div className="user-level"><h2>PBAM</h2></div>
                     <div className="user-profile">
@@ -40,21 +39,21 @@ class DashboardPbamPba extends React.Component {
                             </div>
                         </div>
                         <div className="col2">
-                            <div className="level-user">PBA</div>
+                            <div className="level-user">03PBA</div>
                         </div>
-                        <div className="col3">10 PBA</div>
+                        <div className="col3">Total PBA</div>
                     </div>
 
                     <div className="row">
                         <div className="col1">
                             <div className="icon-user">
-                            <i><Icon.FileEarmarkTextFill/></i>
+                            <i><Icon.PersonBadge/></i>
                             </div>
                         </div>
                         <div className="col2">
-                            <div className="level-user longtext">Laporan</div>
+                            <div className="level-user">02PBA</div>
                         </div>
-                        <div className="col3">90 Laporan</div>
+                        <div className="col3">Aktif</div>
                     </div>
                     
                     <div className="row">
@@ -64,12 +63,23 @@ class DashboardPbamPba extends React.Component {
                             </div>
                         </div>
                         <div className="col2">
-                            <div className="level-user longtext">Feedback</div>
+                            <div className="level-user">01PBA</div>
                         </div>
-                        <div className="col3">90 Feedback</div>
+                        <div className="col3">Cuti</div>
                     </div>
 
+                    {/* Data Passing Disini */}
+                    <div className="row2">
+                        <div className="col4">
+
+                        
+
+                        </div>
+                    </div>
+                    {/* Data Passing Disini */}
+
                 </div>
+
 
             </div>
         );
