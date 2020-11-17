@@ -244,3 +244,83 @@ PBAM Laporan Edit
                             <button className="btn-batal">Batal</button>
                                
                 </div>
+PBAM Feedback data 
+                            <div className="feedbackpcu">
+                            <div className="tabel-user-data">
+                                                <h1>Feedback PCU</h1>
+                                            <table className="table-data-user">
+                                        <tr>
+                                            <th>Nama PCU</th>
+                                            <th>Feedback</th>
+                                            <th>Nama PBA</th>
+                                            <th>Komentar</th>
+                                            <th>Tgl. Pertemuan</th>
+                                            <th>Opsi</th>
+                                        </tr>
+                                        <tr>
+                                            <td>Tuti Wardani</td>
+                                            <td>5 Stars</td>
+                                            <td>Revi Mariska</td>
+                                            <td>Lorem isum...</td>
+                                            <td>14-11-2020</td>
+                                            <td>
+                                            <button className="btn-edit">Lihat</button>
+                                            </td>
+                                            
+                                        </tr>
+                                        <tr>
+                                            <td>Ilham Anjar</td>
+                                            <td>5 Stars</td>
+                                            <td>Revi Mariska</td>
+                                            <td>Lorem isum...</td>
+                                            <td>17-11-2020</td>
+                                            <td>
+                                            <button className="btn-edit">Lihat</button>
+                                            </td>
+                                            
+                                        </tr>
+                                        
+                                        
+                                    </table>
+                                </div>
+                        </div>
+
+                        <div className="feedbackpba">
+                        <div className="tabel-user-data">
+                                                <h1>Feedback PBA</h1>
+                                            <table className="table-data-user">
+                                        <tr>
+                                            <th>Nama PBA</th>
+                                            <th>Feedback</th>
+                                            <th>Nama PCU</th>
+                                            <th>Komentar</th>
+                                            <th>Tgl. Pertemuan</th>
+                                            <th>Opsi</th>
+                                        </tr>
+                                        <tr>
+                                            <td>Revi Mariska</td>
+                                            <td>5 Stars</td>
+                                            <td>Tuti Wardani</td>
+                                            <td>Lorem isum...</td>
+                                            <td>14-11-2020</td>
+                                            <td>
+                                            <button className="btn-edit">Lihat</button>
+                                            </td>
+                                            
+                                        </tr>
+                                        <tr>
+                                            <td>Revi Mariska</td>
+                                            <td>5 Stars</td>
+                                            <td>Ilham Anjar</td>
+                                            <td>Lorem isum...</td>
+                                            <td>17-11-2020</td>
+                                            <td>
+                                            <button className="btn-edit">Lihat</button>
+                                            </td>
+                                            
+                                        </tr>
+                                        
+                                        
+                                    </table>
+                                </div>
+                        </div>

@@ -35,85 +35,33 @@ class DashboardPbamPba extends React.Component {
                     {/* Data Passing Disini */}
                     <div className="row2 feedback">
                         <div className="col4 feedback">
-                        
-                        <div className="feedbackpcu">
-                            <div className="tabel-user-data">
-                                                <h1>Feedback PCU</h1>
-                                            <table className="table-data-user">
-                                        <tr>
-                                            <th>Nama PCU</th>
-                                            <th>Feedback</th>
-                                            <th>Nama PBA</th>
-                                            <th>Komentar</th>
-                                            <th>Tgl. Pertemuan</th>
-                                            <th>Opsi</th>
-                                        </tr>
-                                        <tr>
-                                            <td>Tuti Wardani</td>
-                                            <td>5 Stars</td>
-                                            <td>Revi Mariska</td>
-                                            <td>Lorem isum...</td>
-                                            <td>14-11-2020</td>
-                                            <td>
-                                            <button className="btn-edit">Lihat</button>
-                                            </td>
-                                            
-                                        </tr>
-                                        <tr>
-                                            <td>Ilham Anjar</td>
-                                            <td>5 Stars</td>
-                                            <td>Revi Mariska</td>
-                                            <td>Lorem isum...</td>
-                                            <td>17-11-2020</td>
-                                            <td>
-                                            <button className="btn-edit">Lihat</button>
-                                            </td>
-                                            
-                                        </tr>
-                                        
-                                        
-                                    </table>
-                                </div>
-                        </div>
 
-                        <div className="feedbackpba">
-                        <div className="tabel-user-data">
-                                                <h1>Feedback PBA</h1>
-                                            <table className="table-data-user">
-                                        <tr>
-                                            <th>Nama PBA</th>
-                                            <th>Feedback</th>
-                                            <th>Nama PCU</th>
-                                            <th>Komentar</th>
-                                            <th>Tgl. Pertemuan</th>
-                                            <th>Opsi</th>
-                                        </tr>
-                                        <tr>
-                                            <td>Revi Mariska</td>
-                                            <td>5 Stars</td>
-                                            <td>Tuti Wardani</td>
-                                            <td>Lorem isum...</td>
-                                            <td>14-11-2020</td>
-                                            <td>
-                                            <button className="btn-edit">Lihat</button>
-                                            </td>
-                                            
-                                        </tr>
-                                        <tr>
-                                            <td>Revi Mariska</td>
-                                            <td>5 Stars</td>
-                                            <td>Ilham Anjar</td>
-                                            <td>Lorem isum...</td>
-                                            <td>17-11-2020</td>
-                                            <td>
-                                            <button className="btn-edit">Lihat</button>
-                                            </td>
-                                            
-                                        </tr>
-                                        
-                                        
-                                    </table>
+                        <h1>Feedback PCU</h1>
+                        <div className="feedback-lihat">
+                            <div className="feedback-row">
+                                <div className="feedback-foto">
+                                    <img src={profile} alt="foto" width="200" height="200"/>
                                 </div>
+                                <div className="feedback-info">
+                                <h3 className="feedfor">Ulasan Dari</h3>
+                                    <h2>PCU : Tuti Ramadani</h2>
+                                    <h3 className="feedfor">Untuk</h3>
+                                    <h2>PBA : Revi Mariska</h2>
+                                </div>
+                                <div className="feedback-stars">
+                                    <Icon.StarFill/><Icon.StarFill/><Icon.StarFill/><Icon.StarFill/><Icon.StarFill/>
+                                </div>
+                            </div>
+                            <div className="feedback-row2">
+                                <textarea className="textarea-feedback">
+                                    Lorem isum....
+                                </textarea>
+                                <div className="btn-feedback">
+                                    <button className="btn-tambah">Simpan</button>
+                                    <button className="btn-batal">Batal</button>
+                                </div>
+                                
+                            </div>
                         </div>
 
                         </div>
