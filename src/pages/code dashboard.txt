@@ -1,0 +1,123 @@
+BPBA Tabel Data
+                        <div className="tabel-user-data">
+                                <h2>Data Premium Customer ( PCU )</h2>
+                                <button className="btn-plus">+</button>
+                            <input type="search" className="search-form"/><span><button className="btn-edit">Cari</button></span>
+                            <table className="table-data-user">
+                        <tr>
+                            <th>Id PCU</th>
+                            <th>Nama</th>
+                            <th>Username</th>
+                            <th>Password</th>
+                            <th>Email</th>
+                            <th>PBA</th>
+                            <th>Status</th>
+                            <th>Opsi</th>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>Nama</td>
+                            <td>Username</td>
+                            <td>Password</td>
+                            <td>example@mail.com</td>
+                            <td>Revi M.</td>
+                            <td>Aktif</td>
+                            <td>
+                                <button className="btn-edit">Edit</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>Nama</td>
+                            <td>Username</td>
+                            <td>Password</td>
+                            <td>example@mail.com</td>
+                            <td>Revi M.</td>
+                            <td>Aktif</td>
+                            <td>
+                                <button className="btn-edit">Edit</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>Nama</td>
+                            <td>Username</td>
+                            <td>Password</td>
+                            <td>example@mail.com</td>
+                            <td>Revi M.</td>
+                            <td>Disabled</td>
+                            <td>
+                                <button className="btn-edit">Edit</button>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+BPBA Tambah Data
+                    <div className="form-tambah-data">
+                            <h2 className="title">Tambah Data ( PCU )</h2>
+                            <label for="name">Nama PCU</label>
+                            <input type="text" id="name" name="firstname" placeholder="Nama PCU"/>
+
+                            <label for="username">Username</label>
+                            <input type="text" id="lname" name="username" placeholder="Username"/>
+
+                            <label for="password">Password</label>
+                            <input type="text" id="lname" name="password" placeholder="Password"/>
+
+                            <label for="email">Email</label>
+                            <input type="text" id="lname" name="email" placeholder="Email"/>
+
+                            <label for="PBA">PBA</label>
+                            <select id="country" name="PBA">
+                                <option value="">Pilih PBA</option>
+                                <option value="1">Revi Mariska</option>
+                                <option value="2">Danang Mulyo</option>
+                                <option value="3">Ananda Rizky</option>
+                            </select>
+                            <label for="status">Status</label>
+                            <select id="country" name="status">
+                                <option value="">Status</option>
+                                <option value="1">Aktif</option>
+                                <option value="2">Disabled</option>
+                            </select>
+                        
+                            <button className="btn-tambah">Tambah</button>
+                            <button className="btn-batal">Batal</button>
+                               
+                    </div>
+
+BPBA Edit Data
+
+                     <div className="form-tambah-edit-data">
+                            <h2 className="title">Edit Data ( PCU )</h2>
+                            <label for="name">Nama PCU</label>
+                            <input type="text" id="name" name="firstname" placeholder="Nama PCU"/>
+
+                            <label for="username">Username</label>
+                            <input type="text" id="lname" name="username" placeholder="Username"/>
+
+                            <label for="password">Password</label>
+                            <input type="text" id="lname" name="password" placeholder="Password"/>
+
+                            <label for="email">Email</label>
+                            <input type="text" id="lname" name="email" placeholder="Email"/>
+
+                            <label for="PBA">PBA</label>
+                            <select id="country" name="PBA">
+                                <option value="">Pilih PBA</option>
+                                <option value="1">Revi Mariska</option>
+                                <option value="2">Danang Mulyo</option>
+                                <option value="3">Ananda Rizky</option>
+                            </select>
+                            <label for="status">Status</label>
+                            <select id="country" name="status">
+                                <option value="">Status</option>
+                                <option value="1">Aktif</option>
+                                <option value="2">Disabled</option>
+                            </select>
+                        
+                            <button className="btn-tambah">Update</button>
+                            <button className="btn-batal">Batal</button>
+                               
+                    </div>

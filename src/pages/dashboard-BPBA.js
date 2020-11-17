@@ -1,11 +1,11 @@
 import React from 'react';
-import '../style/dashboard.css';
+import '../style/dashboard-BPBA.css';
 import briwhite from '../img/logobriwhite.png';
 import profile from '../img/imgprofile.png';
 import iconcard from '../img/img-cards.png';
 import * as Icon from 'react-bootstrap-icons';
 
-class Dashboard extends React.Component {
+class DashboardBpba extends React.Component {
     render() {
         return(
             <div className="container">
@@ -21,7 +21,7 @@ class Dashboard extends React.Component {
                     </div>
                     <div className="side-user-menu">
                         <ul>
-                            <li><i><Icon.PersonFill size={25} /></i>Kelola PCU</li>
+                            <li><i><Icon.PersonCircle size={25} /></i>Kelola PCU</li>
                             <li><i><Icon.PersonBadgeFill size={25} /></i>Kelola PBA</li>
                             <li><i><Icon.PersonBadge size={25} /></i>Kelola PBAM</li>
                         </ul>
@@ -36,62 +36,48 @@ class Dashboard extends React.Component {
                     <div className="row">
                         <div className="col1">
                             <div className="icon-user">
-                                <img src={iconcard} width="130" height="130" alt="icon-user" />
+                                <i><Icon.PersonCircle/></i>
                             </div>
+                        </div>
+                        <div className="col2">
                             <div className="level-user">PCU</div>
                         </div>
-                        <div className="col2">Total User : 40 Nasabah</div>
+                        <div className="col3">Total User : 40 Nasabah</div>
                     </div>
 
                     <div className="row">
                         <div className="col1">
                             <div className="icon-user">
-                                <img src={iconcard} width="130" height="130" alt="icon-user" />
+                            <i><Icon.PersonBadgeFill/></i>
                             </div>
+                        </div>
+                        <div className="col2">
                             <div className="level-user">PBA</div>
                         </div>
-                        <div className="col2">Total User : 10 Staff</div>
+                        <div className="col3">Total User : 40 Staff</div>
                     </div>
-
+                    
                     <div className="row">
                         <div className="col1">
                             <div className="icon-user">
-                                <img src={iconcard} width="130" height="130" alt="icon-user" />
+                            <i><Icon.PersonBadge/></i>
                             </div>
+                        </div>
+                        <div className="col2">
                             <div className="level-user">PBAM</div>
                         </div>
-                        <div className="col2">Total User : 2 Manager</div>
+                        <div className="col3">Total User : 40 Manager</div>
                     </div>
-                    
+                    {/* Data Passing Disini */}
                     <div className="row2">
-                        <div className="col3">
-                            <h2>Data Premium Customer ( PCU )</h2>
-                            <table className="table-data-user">
-                        <tr>
-                            <th>Id PCU</th>
-                            <th>Nama</th>
-                            <th>Username</th>
-                            <th>Password</th>
-                            <th>Email</th>
-                            <th>PBA</th>
-                            <th>Status</th>
-                            <th>Opsi</th>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>Nama</td>
-                            <td>Username</td>
-                            <td>Password</td>
-                            <td>example@mail.com</td>
-                            <td>Revi M.</td>
-                            <td>Aktif</td>
-                            <td>
-                                <button>Edit</button>
-                            </td>
-                        </tr>
-                    </table>
+                        <div className="col4">
+                        
+                       
+
                         </div>
                     </div>
+                    {/* Data Passing Disini */}
+                    
                 </div>
 
             </div>
@@ -99,4 +85,4 @@ class Dashboard extends React.Component {
     }
 }
 
-export default Dashboard;
+export default DashboardBpba;
