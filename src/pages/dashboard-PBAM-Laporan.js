@@ -3,6 +3,7 @@ import '../style/dashboard.css';
 import briwhite from '../img/logobriwhite.png';
 import profile from '../img/imgprofile.png';
 import * as Icon from 'react-bootstrap-icons';
+import {BrowserRouter as Router,Switch,Route,Link,useParams} from "react-router-dom";
 
 class DashboardPbamPba extends React.Component {
     render() {
@@ -20,13 +21,13 @@ class DashboardPbamPba extends React.Component {
                     </div>
                     <div className="side-user-menu">
                         <ul>
-                            <li><i><Icon.PersonBadgeFill size={25} /></i>Kelola PBA</li>
+                        <li><i><Icon.PersonBadgeFill size={25} /></i><Link to="/pbampba" className="linkrouter">Kelola PBA</Link></li>
                             <li className="menu-selected"><i><Icon.FileEarmarkTextFill size={25} /></i>Kelola Laporan</li>
-                            <li><i><Icon.StarFill size={25} /></i>Feedback</li>
+                            <li><i><Icon.StarFill size={25} /></i><Link to="/pbamfeedback" className="linkrouter">Feedback</Link></li>
                         </ul>
                     </div>
                     <div className="side-logout">
-                        <button className="btn-logout">Logout</button>
+                    <Link to="/"><button className="btn-logout" >Logout</button></Link>
                     </div>
                 </div>
 

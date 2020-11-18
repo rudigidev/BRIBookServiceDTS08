@@ -324,3 +324,31 @@ PBAM Feedback data
                                     </table>
                                 </div>
                         </div>
+PBAM Feedback Info
+                         <h1>Feedback PCU</h1>
+                        <div className="feedback-lihat">
+                            <div className="feedback-row">
+                                <div className="feedback-foto">
+                                    <img src={profile} alt="foto" width="200" height="200"/>
+                                </div>
+                                <div className="feedback-info">
+                                <h3 className="feedfor">Ulasan Dari</h3>
+                                    <h2>PCU : Tuti Ramadani</h2>
+                                    <h3 className="feedfor">Untuk</h3>
+                                    <h2>PBA : Revi Mariska</h2>
+                                </div>
+                                <div className="feedback-stars">
+                                    <Icon.StarFill/><Icon.StarFill/><Icon.StarFill/><Icon.StarFill/><Icon.StarFill/>
+                                </div>
+                            </div>
+                            <div className="feedback-row2">
+                                <textarea className="textarea-feedback">
+                                    Lorem isum....
+                                </textarea>
+                                <div className="btn-feedback">
+                                    <button className="btn-tambah">Simpan</button>
+                                    <button className="btn-batal">Batal</button>
+                                </div>
+                                
+                            </div>
+                        </div>

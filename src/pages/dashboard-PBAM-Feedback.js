@@ -3,6 +3,7 @@ import '../style/dashboard.css';
 import briwhite from '../img/logobriwhite.png';
 import profile from '../img/imgprofile.png';
 import * as Icon from 'react-bootstrap-icons';
+import {BrowserRouter as Router,Switch,Route,Link,useParams} from "react-router-dom";
 
 class DashboardPbamPba extends React.Component {
     render() {
@@ -20,13 +21,13 @@ class DashboardPbamPba extends React.Component {
                     </div>
                     <div className="side-user-menu">
                         <ul>
-                            <li><i><Icon.PersonBadgeFill size={25} /></i>Kelola PBA</li>
-                            <li><i><Icon.FileEarmarkTextFill size={25} /></i>Kelola Laporan</li>
+                            <li><i><Icon.PersonBadgeFill size={25} /></i><Link to="/pbampba" className="linkrouter">Kelola PBA</Link></li>
+                            <li><i><Icon.FileEarmarkTextFill size={25} /></i><Link to="/pbamlaporan" className="linkrouter">Kelola Laporan</Link></li>
                             <li className="menu-selected"><i><Icon.StarFill size={25} /></i>Feedback</li>
                         </ul>
                     </div>
                     <div className="side-logout">
-                        <button className="btn-logout">Logout</button>
+                    <Link to="/"><button className="btn-logout" >Logout</button></Link>
                     </div>
                 </div>
 
@@ -36,33 +37,86 @@ class DashboardPbamPba extends React.Component {
                     <div className="row2 feedback">
                         <div className="col4 feedback">
 
-                        <h1>Feedback PCU</h1>
-                        <div className="feedback-lihat">
-                            <div className="feedback-row">
-                                <div className="feedback-foto">
-                                    <img src={profile} alt="foto" width="200" height="200"/>
+                        <div className="feedbackpcu">
+                            <div className="tabel-user-data">
+                                                <h1>Feedback PCU</h1>
+                                            <table className="table-data-user">
+                                        <tr>
+                                            <th>Nama PCU</th>
+                                            <th>Feedback</th>
+                                            <th>Nama PBA</th>
+                                            <th>Komentar</th>
+                                            <th>Tgl. Pertemuan</th>
+                                            <th>Opsi</th>
+                                        </tr>
+                                        <tr>
+                                            <td>Tuti Wardani</td>
+                                            <td>5 Stars</td>
+                                            <td>Revi Mariska</td>
+                                            <td>Lorem isum...</td>
+                                            <td>14-11-2020</td>
+                                            <td>
+                                            <button className="btn-edit">Lihat</button>
+                                            </td>
+                                            
+                                        </tr>
+                                        <tr>
+                                            <td>Ilham Anjar</td>
+                                            <td>5 Stars</td>
+                                            <td>Revi Mariska</td>
+                                            <td>Lorem isum...</td>
+                                            <td>17-11-2020</td>
+                                            <td>
+                                            <button className="btn-edit">Lihat</button>
+                                            </td>
+                                            
+                                        </tr>
+                                        
+                                        
+                                    </table>
                                 </div>
-                                <div className="feedback-info">
-                                <h3 className="feedfor">Ulasan Dari</h3>
-                                    <h2>PCU : Tuti Ramadani</h2>
-                                    <h3 className="feedfor">Untuk</h3>
-                                    <h2>PBA : Revi Mariska</h2>
-                                </div>
-                                <div className="feedback-stars">
-                                    <Icon.StarFill/><Icon.StarFill/><Icon.StarFill/><Icon.StarFill/><Icon.StarFill/>
-                                </div>
-                            </div>
-                            <div className="feedback-row2">
-                                <textarea className="textarea-feedback">
-                                    Lorem isum....
-                                </textarea>
-                                <div className="btn-feedback">
-                                    <button className="btn-tambah">Simpan</button>
-                                    <button className="btn-batal">Batal</button>
-                                </div>
-                                
-                            </div>
                         </div>
+
+                        <div className="feedbackpba">
+                        <div className="tabel-user-data">
+                                                <h1>Feedback PBA</h1>
+                                            <table className="table-data-user">
+                                        <tr>
+                                            <th>Nama PBA</th>
+                                            <th>Feedback</th>
+                                            <th>Nama PCU</th>
+                                            <th>Komentar</th>
+                                            <th>Tgl. Pertemuan</th>
+                                            <th>Opsi</th>
+                                        </tr>
+                                        <tr>
+                                            <td>Revi Mariska</td>
+                                            <td>5 Stars</td>
+                                            <td>Tuti Wardani</td>
+                                            <td>Lorem isum...</td>
+                                            <td>14-11-2020</td>
+                                            <td>
+                                            <button className="btn-edit">Lihat</button>
+                                            </td>
+                                            
+                                        </tr>
+                                        <tr>
+                                            <td>Revi Mariska</td>
+                                            <td>5 Stars</td>
+                                            <td>Ilham Anjar</td>
+                                            <td>Lorem isum...</td>
+                                            <td>17-11-2020</td>
+                                            <td>
+                                            <button className="btn-edit">Lihat</button>
+                                            </td>
+                                            
+                                        </tr>
+                                        
+                                        
+                                    </table>
+                                </div>
+                        </div>
+
 
                         </div>
                     </div>

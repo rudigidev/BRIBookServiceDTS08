@@ -1,17 +1,17 @@
 import React from 'react';
+import {BrowserRouter as Router,Switch,Route,Link,useParams, Redirect} from "react-router-dom";
 import '../style/dashboard.css';
 import briwhite from '../img/logobriwhite.png';
 import profile from '../img/imgprofile.png';
 import * as Icon from 'react-bootstrap-icons';
-import {BrowserRouter as Router,Switch,Route,Link,useParams} from "react-router-dom";
 
-class DashboardPbamPba extends React.Component {
+class DashboardBpbaPba extends React.Component {
     render() {
         return(
             <div className="container">
-
+                
                 <div className="side-menu">
-                    <div className="user-level"><h2>PBAM</h2></div>
+                    <div className="user-level"><h2>BPBA</h2></div>
                     <div className="user-profile">
                         <img src={profile} width="100" height="100" alt="profile"/>
                         <h3>Rudi Giyarto</h3>
@@ -21,9 +21,9 @@ class DashboardPbamPba extends React.Component {
                     </div>
                     <div className="side-user-menu">
                         <ul>
+                            <li><i><Icon.PersonCircle size={25} /></i><Link to={'bpbapcu'} className="linkrouter">Kelola PCU</Link></li>
                             <li className="menu-selected"><i><Icon.PersonBadgeFill size={25} /></i>Kelola PBA</li>
-                            <li><i><Icon.FileEarmarkTextFill size={25} /></i><Link to="/pbamlaporan" className="linkrouter">Kelola Laporan</Link></li>
-                            <li><i><Icon.StarFill size={25} /></i><Link to="/pbamfeedback" className="linkrouter">Feedback</Link></li>
+                            <li><i><Icon.PersonBadge size={25} /></i><Link to={'bpbapbam'} className="linkrouter">Kelola PBAM</Link></li>
                         </ul>
                     </div>
                     <div className="side-logout">
@@ -36,25 +36,25 @@ class DashboardPbamPba extends React.Component {
                     <div className="row">
                         <div className="col1">
                             <div className="icon-user">
-                                <i><Icon.PersonBadge/></i>
+                                <i><Icon.PersonCircle/></i>
                             </div>
                         </div>
                         <div className="col2">
-                            <div className="level-user">03PBA</div>
+                            <div className="level-user">PCU</div>
                         </div>
-                        <div className="col3">Total PBA</div>
+                        <div className="col3">Total User : 40 Nasabah</div>
                     </div>
 
                     <div className="row">
                         <div className="col1">
                             <div className="icon-user">
-                            <i><Icon.PersonBadge/></i>
+                            <i><Icon.PersonBadgeFill/></i>
                             </div>
                         </div>
                         <div className="col2">
-                            <div className="level-user">02PBA</div>
+                            <div className="level-user">PBA</div>
                         </div>
-                        <div className="col3">Aktif</div>
+                        <div className="col3">Total User : 40 Staff</div>
                     </div>
                     
                     <div className="row">
@@ -64,64 +64,76 @@ class DashboardPbamPba extends React.Component {
                             </div>
                         </div>
                         <div className="col2">
-                            <div className="level-user">01PBA</div>
+                            <div className="level-user">PBAM</div>
                         </div>
-                        <div className="col3">Cuti</div>
+                        <div className="col3">Total User : 40 Manager</div>
                     </div>
-
                     {/* Data Passing Disini */}
                     <div className="row2">
                         <div className="col4">
-
                         <div className="tabel-user-data">
-                                <h2>Daftar PBA</h2>
+                                <h2>Data Premium Customer ( PCU )</h2>
+                                <button className="btn-plus">+</button>
+                            <input type="search" className="search-form"/><span><button className="btn-edit">Cari</button></span>
                             <table className="table-data-user">
                         <tr>
-                            <th>Nama PBA</th>
-                            <th>Alamat</th>
-                            <th>No. Hp</th>
+                            <th>Id PCU</th>
+                            <th>Nama</th>
+                            <th>Username</th>
+                            <th>Password</th>
+                            <th>Email</th>
+                            <th>PBAM</th>
                             <th>Status</th>
-                            <th>Daftar PCU</th>
-                            <th>Jadwal</th>
+                            <th>Opsi</th>
                         </tr>
                         <tr>
-                            <td>Revi Mariska</td>
-                            <td>Jl. Lorem Isum</td>
-                            <td>085xxxxxxxx</td>
+                            <td>1</td>
+                            <td>Nama</td>
+                            <td>Username</td>
+                            <td>Password</td>
+                            <td>example@mail.com</td>
+                            <td>Revi M.</td>
                             <td>Aktif</td>
                             <td>
-                            <button className="btn-edit">Edit</button>
-                            </td>
-                            <td>
-                                <button className="btn-edit">Lihat</button>
+                                <button className="btn-edit">Edit</button>
                             </td>
                         </tr>
                         <tr>
-                            <td>Ananda Rahma</td>
-                            <td>Jl. Lorem Isum</td>
-                            <td>085xxxxxxxx</td>
+                            <td>1</td>
+                            <td>Nama</td>
+                            <td>Username</td>
+                            <td>Password</td>
+                            <td>example@mail.com</td>
+                            <td>Revi M.</td>
                             <td>Aktif</td>
                             <td>
-                            <button className="btn-edit">Edit</button>
-                            </td>
-                            <td>
-                                <button className="btn-edit">Lihat</button>
+                                <button className="btn-edit">Edit</button>
                             </td>
                         </tr>
-                        
+                        <tr>
+                            <td>1</td>
+                            <td>Nama</td>
+                            <td>Username</td>
+                            <td>Password</td>
+                            <td>example@mail.com</td>
+                            <td>Revi M.</td>
+                            <td>Disabled</td>
+                            <td>
+                                <button className="btn-edit">Edit</button>
+                            </td>
+                        </tr>
                     </table>
                 </div>
-
+                        
                         </div>
                     </div>
                     {/* Data Passing Disini */}
-
+                    
                 </div>
-
 
             </div>
         );
     }
 }
 
-export default DashboardPbamPba;
+export default DashboardBpbaPba;

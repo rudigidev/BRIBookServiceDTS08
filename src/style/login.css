@@ -15,6 +15,7 @@
     border-radius: 20px;
     border: 3px solid #1A3783;
     box-shadow: 0px 0px 8px 1px rgba(107, 107, 107, 0.8);
+    background-color: white;
 }
 .login-input-form {
     border-radius: 17px;

@@ -50,6 +50,13 @@ body {
     border-radius: 20px;
     padding-left: 40px;
 }
+.linkrouter {
+    color: white;
+    text-decoration: none;
+}
+.linkrouter:hover {
+    color: #1A3783;
+}
 .side-user-menu ul li i {
     /* border: 1px solid red; */
     position: relative;
@@ -206,9 +213,6 @@ body {
     border: 2px solid #1A3783;
     height: 45%;
     margin:1%;
-}
-.feedback-lihat {
-    /* border: 1px solid red; */
 }
 .feedback-row {
     /* border: 1px solid blue; */

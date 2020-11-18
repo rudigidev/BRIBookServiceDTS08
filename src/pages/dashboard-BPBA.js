@@ -1,4 +1,5 @@
 import React from 'react';
+import {BrowserRouter as Router,Switch,Route,Link,useParams, Redirect} from "react-router-dom";
 import '../style/dashboard.css';
 import briwhite from '../img/logobriwhite.png';
 import profile from '../img/imgprofile.png';
@@ -20,13 +21,13 @@ class DashboardBpba extends React.Component {
                     </div>
                     <div className="side-user-menu">
                         <ul>
-                            <li><i><Icon.PersonCircle size={25} /></i>Kelola PCU</li>
-                            <li><i><Icon.PersonBadgeFill size={25} /></i>Kelola PBA</li>
-                            <li><i><Icon.PersonBadge size={25} /></i>Kelola PBAM</li>
+                            <li><i><Icon.PersonCircle size={25} /></i><Link to={'bpbapcu'} className="linkrouter">Kelola PCU</Link></li>
+                            <li><i><Icon.PersonBadgeFill size={25} /></i><Link to={'bpbapba'} className="linkrouter">Kelola PBA</Link></li>
+                            <li><i><Icon.PersonBadge size={25} /></i><Link to={'bpbapbam'} className="linkrouter">Kelola PBAM</Link></li>
                         </ul>
                     </div>
                     <div className="side-logout">
-                        <button className="btn-logout">Logout</button>
+                    <Link to="/"><button className="btn-logout" >Logout</button></Link>
                     </div>
                 </div>
 
@@ -67,15 +68,9 @@ class DashboardBpba extends React.Component {
                         </div>
                         <div className="col3">Total User : 40 Manager</div>
                     </div>
-                    {/* Data Passing Disini */}
-                    <div className="row2">
-                        <div className="col4">
-                        
-                        
-                        </div>
-                    </div>
-                    {/* Data Passing Disini */}
                     
+
+
                 </div>
 
             </div>

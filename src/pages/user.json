@@ -1,72 +1,75 @@
-[
-    {
-        "id" : "1",
-        "nama" : "Tuti Wardani",
-        "role" : "PCU",
-        "PBAM" : "",
-        "PBA" : "Revi Mariska",
-        "notelp" : "085456321478",
-        "email" : "tuticantik@gmail.com",
-        "password" : "rahasia123"
-    },
-    {
-        "id" : "2",
-        "nama" : "Mawardani Putri",
-        "role" : "PCU",
-        "PBAM" : "",
-        "PBA" : "Ananda Rizky",
-        "notelp" : "085456963458",
-        "email" : "mawardani89@gmail.com",
-        "password" : "rahasia123"
-    },
-    {
-        "id" : "3",
-        "nama" : "Revi Mariska",
-        "role" : "PBA",
-        "PBA" : "",
-        "PBAM" : "Rahmawati Wulandari",
-        "notelp" : "085632458741",
-        "email" : "revimariska65@gmail.com",
-        "password" : "rahasia123"
-    },
-    {
-        "id" : "4",
-        "nama" : "Ananda Rizky",
-        "role" : "PBA",
-        "PBA" : "",
-        "PBAM" : "Rani Putri",
-        "notelp" : "085451365254",
-        "email" : "anandarizky90@gmail.com",
-        "password" : "rahasia123"
-    },
-    {
-        "id" : "5",
-        "nama" : "Rahmawati Wulandari",
-        "role" : "PBAM",
-        "PBA" : "",
-        "PBAM" : "",
-        "notelp" : "085451963789",
-        "email" : "rahmawati29@gmail.com",
-        "password" : "rahasia123"
-    },
-    {
-        "id" : "6",
-        "nama" : "Rani Putri",
-        "role" : "PBAM",
-        "PBA" : "",
-        "PBAM" : "",
-        "notelp" : "085789563214",
-        "email" : "raniputri45@gmail.com",
-        "password" : "rahasia123"
-    },
-    {
-        "id" : "7",
-        "nama" : "Darto Wibowo",
-        "role" : "BPBA",
-        "PBA" : "",
-        "PBAM" : "",
-        "notelp" : "085666888999",
-        "email" : "dartowibo34@gmail.com",
-        "password" : "rahasia123"
-    }
-]
+{
+   "users": 
+   [
+        {
+            "id" : "1",
+            "nama" : "Tuti Wardani",
+            "role" : "PCU",
+            "PBAM" : "",
+            "PBA" : "Revi Mariska",
+            "notelp" : "085456321478",
+            "email" : "tuticantik@gmail.com",
+            "password" : "rahasia123"
+        },
+        {
+            "id" : "2",
+            "nama" : "Mawardani Putri",
+            "role" : "PCU",
+            "PBAM" : "",
+            "PBA" : "Ananda Rizky",
+            "notelp" : "085456963458",
+            "email" : "mawardani89@gmail.com",
+            "password" : "rahasia123"
+        },
+        {
+            "id" : "3",
+            "nama" : "Revi Mariska",
+            "role" : "PBA",
+            "PBA" : "",
+            "PBAM" : "Rahmawati Wulandari",
+            "notelp" : "085632458741",
+            "email" : "revimariska65@gmail.com",
+            "password" : "rahasia123"
+        },
+        {
+            "id" : "4",
+            "nama" : "Ananda Rizky",
+            "role" : "PBA",
+            "PBA" : "",
+            "PBAM" : "Rani Putri",
+            "notelp" : "085451365254",
+            "email" : "anandarizky90@gmail.com",
+            "password" : "rahasia123"
+        },
+        {
+            "id" : "5",
+            "nama" : "Rahmawati Wulandari",
+            "role" : "PBAM",
+            "PBA" : "",
+            "PBAM" : "",
+            "notelp" : "085451963789",
+            "email" : "rahmawati29@gmail.com",
+            "password" : "rahasia123"
+        },
+        {
+            "id" : "6",
+            "nama" : "Rani Putri",
+            "role" : "PBAM",
+            "PBA" : "",
+            "PBAM" : "",
+            "notelp" : "085789563214",
+            "email" : "raniputri45@gmail.com",
+            "password" : "rahasia123"
+        },
+        {
+            "id" : "7",
+            "nama" : "Darto Wibowo",
+            "role" : "BPBA",
+            "PBA" : "",
+            "PBAM" : "",
+            "notelp" : "085666888999",
+            "email" : "dartowibo34@gmail.com",
+            "password" : "rahasia123"
+        }
+    ]
+}
