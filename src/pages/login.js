@@ -4,34 +4,39 @@ import logobri from '../img/logobookingservice.png';
 import history from '../history.js';
 import { logRoles } from '@testing-library/react';
 import {BrowserRouter as Router,Switch,Route,Link,useParams, Redirect} from 'react-router-dom';
-
-
+import LoginRole from '../service/login-role.js';
 
 class LoginPage extends React.Component {
 
   constructor(props) {
     super(props);
     this.state = {
-      username:'',
+      email:'',
       password:'',
-      role:'',
-      login: false
+      // role:'',
+      // login: false
     }
     this.login = this.login.bind(this);
     this.onChange = this.onChange.bind(this);
   }
 
   login() {
+    // let a = JSON.stringify(this.state);
+    // console.log(a);
+    LoginRole('/auth/login',this.state).then ((result) => {
+      var responseJSON = result;
+      console.log(responseJSON);
+    })
 
-    if(this.state.username === ''){
-      return alert('Email Belum Diisi');
-  }else if(this.state.username !== '' && this.state.password === ''){
-      return alert('Password Belum Diisi');
-  }else if(this.state.username === 'admin' && this.state.password === 'admin'){
-      this.setState({login:true,role:'bpba'})
-  }else if (this.state.username === 'admin2' && this.state.password === 'admin2'){
-    this.setState({login:true,role:'pbam'})
-  }
+  //   if(this.state.username === ''){
+  //     return alert('Email Belum Diisi');
+  // }else if(this.state.username !== '' && this.state.password === ''){
+  //     return alert('Password Belum Diisi');
+  // }else if(this.state.username === 'admin' && this.state.password === 'admin'){
+  //     this.setState({login:true,role:'bpba'})
+  // }else if (this.state.username === 'admin2' && this.state.password === 'admin2'){
+  //   this.setState({login:true,role:'pbam'})
+  // }
 }
   onChange(e) {
     this.setState({[e.target.name] : e.target.value});
@@ -49,7 +54,7 @@ class LoginPage extends React.Component {
             <div className="logo">
               <img src={logobri} width="250" height="150" alt="logobri"/>
             </div>
-            <input className="login-input-form" type="email" placeholder="Email" name="username" autoComplete="off" onChange={this.onChange} />
+            <input className="login-input-form" type="email" placeholder="Email" name="email" autoComplete="off" onChange={this.onChange} />
             <br/>
             <input className="login-input-form" type="password" placeholder="Password" name="password" autoComplete="off" onChange={this.onChange} />
             <br/>
