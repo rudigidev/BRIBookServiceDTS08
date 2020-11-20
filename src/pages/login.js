@@ -4,7 +4,8 @@ import logobri from '../img/logobookingservice.png';
 import history from '../history.js';
 import { logRoles } from '@testing-library/react';
 import {BrowserRouter as Router,Switch,Route,Link,useParams, Redirect} from 'react-router-dom';
-import LoginRole from '../service/login-role.js';
+import PostData from '../service/login-role.js';
+
 
 class LoginPage extends React.Component {
 
@@ -13,42 +14,41 @@ class LoginPage extends React.Component {
     this.state = {
       email:'',
       password:'',
-      // role:'',
-      // login: false
+      role:'',
+      sessionLogin: false,
+      whoUser:'',
+      token:''
     }
     this.login = this.login.bind(this);
     this.onChange = this.onChange.bind(this);
   }
 
   login() {
-    // let a = JSON.stringify(this.state);
-    // console.log(a);
-    LoginRole('/auth/login',this.state).then ((result) => {
-      var responseJSON = result;
-      console.log(responseJSON);
-    })
-
-  //   if(this.state.username === ''){
-  //     return alert('Email Belum Diisi');
-  // }else if(this.state.username !== '' && this.state.password === ''){
-  //     return alert('Password Belum Diisi');
-  // }else if(this.state.username === 'admin' && this.state.password === 'admin'){
-  //     this.setState({login:true,role:'bpba'})
-  // }else if (this.state.username === 'admin2' && this.state.password === 'admin2'){
-  //   this.setState({login:true,role:'pbam'})
-  // }
+    if(this.state.email && this.state.password){
+      PostData('/auth/login',this.state).then ((result) => {
+        let responseJSON = result;
+        if(responseJSON.user){
+          this.setState({sessionLogin: true, role:responseJSON.user.role,whoUser:responseJSON.user.nama,token:responseJSON.token})
+          sessionStorage.setItem('user', this.state.token);
+          localStorage.setItem('whoUser',this.state.whoUser)
+          console.log(this.state)
+        }
+        else {
+          console.log("Login Error");
+        }
+      })//LoginRole
+    }//main if
 }
   onChange(e) {
     this.setState({[e.target.name] : e.target.value});
   }
-
+    
     render() { 
-      if(this.state.login && this.state.role ==='bpba'){
+      if(this.state.sessionLogin && this.state.role ==='bpba'){
         return (<Redirect to={'/bpba'}/>);
-      }else if(this.state.login && this.state.role ==='pbam'){
+      }else if(this.state.sessionLogin && this.state.role ==='pbam'){
         return(<Redirect to={'/pbam'}/>);
-      }else{
-     
+      }else {
         return (
           <div className="login-page">
             <div className="logo">
@@ -62,7 +62,7 @@ class LoginPage extends React.Component {
             <p><a href="#" className="lupa-password">Lupa Password?</a></p>
           </div>
         );
-      }
+    }
     }//render
 }//class login
 

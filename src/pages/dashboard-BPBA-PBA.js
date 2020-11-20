@@ -4,9 +4,148 @@ import '../style/dashboard.css';
 import briwhite from '../img/logobriwhite.png';
 import profile from '../img/imgprofile.png';
 import * as Icon from 'react-bootstrap-icons';
+import GetDataBpba from '../service/getdatabpba';
 
 class DashboardBpbaPba extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            sessionLoginbpba: false,
+            dataGet:[],
+            inputCari:''
+        }
+        this.logout = this.logout.bind(this);
+        this.cariData = this.cariData.bind(this);
+        this.onChange = this.onChange.bind(this);
+        this.testBtn = this.testBtn.bind(this);
+        this.componentDidMount = this.componentDidMount.bind(this);
+      
+    }
+    componentDidMount(){
+            let htlmElement = ''
+            GetDataBpba('/bpba/admin/find-by-role/pba')
+            .then ((result) => {
+              let responseJSON = result;
+              if(responseJSON.data){
+                this.setState({dataGet:responseJSON.data})
+                console.log(this.state.dataGet)
+                console.log(this.state.inputCari)
+                let data = this.state.dataGet;
+                for(let m in data){
+                 
+                    htlmElement += `
+                        <tr>
+                            <td>${data[m].id}</td>
+                            <td>${data[m].nama}</td>
+                            <td>********</td>
+                            <td>${data[m].email}</td>
+                            <td>${data[m].managed_by}</td>
+                            <td>${data[m].status}</td>
+                            <td>
+                                <button className="btn-edit" id="btn-edit">Edit</button>
+                            </td>
+                        <tr>
+                `;
+                
+                }
+                document.getElementById('table-pcu').innerHTML = htlmElement; 
+              }
+              else {
+                console.log("get Error");
+              }
+            })//PostData
+    }
+    testBtn(){
+       let tambahForm = '';
+       tambahForm += `
+            <div className="form-tambah-edit-data" id="form-tambah">
+                <h2 className="title">Tambah Data ( PCU )</h2>
+                <label for="name">Nama PCU</label>
+                <input type="text" id="name" name="firstname" placeholder="Nama PCU"/>
+
+                <label for="username">Username</label>
+                <input type="text" id="lname" name="username" placeholder="Username"/>
+
+                <label for="password">Password</label>
+                <input type="text" id="lname" name="password" placeholder="Password"/>
+
+                <label for="email">Email</label>
+                <input type="text" id="lname" name="email" placeholder="Email"/>
+
+                <label for="PBA">PBA</label>
+                <select id="country" name="PBA">
+                    <option value="">Pilih PBA</option>
+                    <option value="1">Revi Mariska</option>
+                    <option value="2">Danang Mulyo</option>
+                    <option value="3">Ananda Rizky</option>
+                </select>
+                <label for="status">Status</label>
+                <select id="country" name="status">
+                    <option value="">Status</option>
+                    <option value="1">Aktif</option>
+                    <option value="2">Disabled</option>
+                </select>
+            
+                <button className="btn-tambah" id="btn-tambah-data">Tambah</button>
+                <button className="btn-batal" id="btn-batal-data" onClick="${this.componentDidMount}">Batal</button>
+                    
+            </div>
+
+       `;
+        document.getElementById('tempatdata').innerHTML= tambahForm;
+    }
+    cariData() {
+        let htlmElement = ''
+        GetDataBpba(`/bpba/admin/find-by-name/${this.state.inputCari}`)
+        .then ((result) => {
+          let responseJSON = result;
+          if(responseJSON.data){
+            this.setState({dataGet:responseJSON.data})
+            console.log(this.state.dataGet)
+            let data = this.state.dataGet;
+            for(let m in data){
+             
+                htlmElement += `
+                    <tr>
+                        <td>${data[m].id}</td>
+                        <td>${data[m].nama}</td>
+                        <td>********</td>
+                        <td>${data[m].email}</td>
+                        <td>${data[m].assisted_by}</td>
+                        <td>${data[m].status}</td>
+                        <td>
+                            <button className="btn-edit" id="btn-edit">Edit</button>
+                        </td>
+                    <tr>
+            `;
+            
+            }
+            document.getElementById('table-pcu').innerHTML = htlmElement; 
+          }
+          else {
+            console.log("get Error");
+          }
+        })//PostData
+    }
+
+    logout() {
+        sessionStorage.setItem('user','');
+        sessionStorage.clear();
+        this.setState({sessionLoginbpba: true})
+        
+    }
+    onChange(e) {
+        if(e.target.value === ''){
+            return this.componentDidMount();
+        }else if (e.target.value !== ''){
+            return this.setState({inputCari : e.target.value});
+        }
+    }
+        
     render() {
+        if(this.state.sessionLoginbpba === true){
+            return(<Redirect to={'/'}/>)
+        }
         return(
             <div className="container">
                 
@@ -14,7 +153,7 @@ class DashboardBpbaPba extends React.Component {
                     <div className="user-level"><h2>BPBA</h2></div>
                     <div className="user-profile">
                         <img src={profile} width="100" height="100" alt="profile"/>
-                        <h3>Rudi Giyarto</h3>
+                        <h3>{localStorage.getItem('whoUser')}</h3>
                     </div>
                     <div className="side-bri-logowhite">
                         <img src={briwhite} width="200" height="120" alt="briwhite"/>
@@ -27,7 +166,7 @@ class DashboardBpbaPba extends React.Component {
                         </ul>
                     </div>
                     <div className="side-logout">
-                    <Link to="/"><button className="btn-logout" >Logout</button></Link>
+                    <button className="btn-logout" onClick={this.logout}>Logout</button>
                     </div>
                 </div>
 
@@ -70,58 +209,26 @@ class DashboardBpbaPba extends React.Component {
                     </div>
                     {/* Data Passing Disini */}
                     <div className="row2">
-                        <div className="col4">
+                        <div className="col4" id="tempatdata">
                         <div className="tabel-user-data">
-                                <h2>Data Premium Customer ( PCU )</h2>
-                                <button className="btn-plus">+</button>
-                            <input type="search" className="search-form"/><span><button className="btn-edit">Cari</button></span>
-                            <table className="table-data-user">
-                        <tr>
-                            <th>Id PCU</th>
-                            <th>Nama</th>
-                            <th>Username</th>
-                            <th>Password</th>
-                            <th>Email</th>
-                            <th>PBAM</th>
-                            <th>Status</th>
-                            <th>Opsi</th>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>Nama</td>
-                            <td>Username</td>
-                            <td>Password</td>
-                            <td>example@mail.com</td>
-                            <td>Revi M.</td>
-                            <td>Aktif</td>
-                            <td>
-                                <button className="btn-edit">Edit</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>Nama</td>
-                            <td>Username</td>
-                            <td>Password</td>
-                            <td>example@mail.com</td>
-                            <td>Revi M.</td>
-                            <td>Aktif</td>
-                            <td>
-                                <button className="btn-edit">Edit</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>Nama</td>
-                            <td>Username</td>
-                            <td>Password</td>
-                            <td>example@mail.com</td>
-                            <td>Revi M.</td>
-                            <td>Disabled</td>
-                            <td>
-                                <button className="btn-edit">Edit</button>
-                            </td>
-                        </tr>
+                                <h2>Data Personal Banking Assistent ( PBA )</h2>
+                                <button className="btn-plus" onClick={this.testBtn}>+</button>
+                            <input type="search" className="search-form" onChange={this.onChange}/><span><button className="btn-edit" onClick={this.cariData} >Cari</button></span>
+                            <table className="table-data-user" >
+                            <thead>
+                                <tr>
+                                    <th>Id PCU</th>
+                                    <th>Nama</th>
+                                    <th>Password</th>
+                                    <th>Email</th>
+                                    <th>PBAM</th>
+                                    <th>Status</th>
+                                    <th>Opsi</th>
+                                </tr>
+                            </thead>
+                            <tbody id="table-pcu">
+
+                            </tbody>
                     </table>
                 </div>
                         

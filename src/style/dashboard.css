@@ -49,6 +49,7 @@ body {
     width: 200px;
     border-radius: 20px;
     padding-left: 40px;
+    margin-top: 5px;
 }
 .linkrouter {
     color: white;
@@ -289,12 +290,28 @@ body {
 .btn-edit:active {
     opacity: 0.7;
 }
+#btn-edit {
+    border: none;
+    background-color:  #1A3783;
+    color: white;
+    padding: 5px;
+    width: 4em;
+    border-radius: 5px;
+}
+#btn-edit:hover {
+    background-color: orange;
+}
+#btn-edit:active {
+    opacity: 0.7;
+}
 .search-form {
     border: 2px solid  #1A3783;
     border-radius: 5px;
     margin-right: 10px;
     padding: 3px;
-    margin-left: 75%;
+    margin-left: 60%;
+    width: 220px;
+    padding: 5px;
 }
 .btn-plus {
     background-color:  #1A3783;
@@ -327,6 +344,45 @@ body {
     margin-right: 30%;
     margin-bottom: 20px;
 }
+#form-tambah {
+    /* border: 1px solid red; */
+    margin-left: 30%;
+    margin-right: 30%;
+    margin-bottom: 40px;
+}
+#btn-tambah-data{
+    background-color: #1A3783;
+    border: none;
+    margin-right: 20px;
+    padding: 10px;
+    border-radius: 10px;
+    width: 100px;
+    color: white;
+}
+#btn-batal-data{
+    background-color: #F0582F;
+    border: none;
+    padding: 10px;
+    border-radius: 10px;
+    width: 100px;
+    color: white;
+}
+#btn-tambah-data:hover{
+    opacity: 0.8;
+    background-color: orange;
+}
+#btn-batal-data:hover{
+    opacity: 0.8;
+    background-color: orange;
+}
+#btn-tambah-data:active{
+    opacity: 0.3;
+    background-color: orange;
+}
+#btn-batal-data:active{
+    opacity: 0.3;
+    background-color: orange;
+}
 input[type=text], select {
     width: 100%;
     padding: 5px;
@@ -337,6 +393,9 @@ input[type=text], select {
     padding-left: 10px;
     color: gray;
   }
+  input:active {
+    border: none;
+}
 .btn-tambah{
     margin-left: 100px;
     background-color: #1A3783;

@@ -6,7 +6,23 @@ import profile from '../img/imgprofile.png';
 import * as Icon from 'react-bootstrap-icons';
 
 class DashboardPbam extends React.Component {
+    constructor(props){
+        super(props);
+        this.state = {
+        sessionLogina: false
+        }
+        this.logout = this.logout.bind(this);
+    }
+   
+    logout() {
+        sessionStorage.setItem('user','');
+        sessionStorage.clear();
+        this.setState({sessionLogina: true})
+    }
     render() {
+        if(this.state.sessionLogina === true){
+            return(<Redirect to={'/'}/>)
+        }
         return(
             <div className="container">
                 
@@ -27,7 +43,7 @@ class DashboardPbam extends React.Component {
                         </ul>
                     </div>
                     <div className="side-logout">
-                        <Link to="/"><button className="btn-logout" >Logout</button></Link>
+                        <button className="btn-logout" onClick={this.logout}>Logout</button>
                     </div>
                 </div>
 

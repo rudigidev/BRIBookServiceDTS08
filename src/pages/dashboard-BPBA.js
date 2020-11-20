@@ -4,9 +4,30 @@ import '../style/dashboard.css';
 import briwhite from '../img/logobriwhite.png';
 import profile from '../img/imgprofile.png';
 import * as Icon from 'react-bootstrap-icons';
+import PostDataBpba from '../service/postdatabpba';
 
 class DashboardBpba extends React.Component {
+    constructor(props){
+        super(props);
+        this.state = {
+        sessionLoginbpba: false,
+        }
+        this.logout = this.logout.bind(this);
+    }
+
+    logout() {
+        sessionStorage.setItem('user','');
+        sessionStorage.clear();
+        localStorage.setItem('whoUser','');
+        localStorage.clear();
+        this.setState({sessionLoginbpba: true})
+        
+    }
     render() {
+        if(this.state.sessionLoginbpba === true){
+            return(<Redirect to={'/'}/>)
+        }
+
         return(
             <div className="container">
                 
@@ -14,7 +35,7 @@ class DashboardBpba extends React.Component {
                     <div className="user-level"><h2>BPBA</h2></div>
                     <div className="user-profile">
                         <img src={profile} width="100" height="100" alt="profile"/>
-                        <h3>Rudi Giyarto</h3>
+                        <h3>{localStorage.getItem('whoUser')}</h3>
                     </div>
                     <div className="side-bri-logowhite">
                         <img src={briwhite} width="200" height="120" alt="briwhite"/>
@@ -27,7 +48,7 @@ class DashboardBpba extends React.Component {
                         </ul>
                     </div>
                     <div className="side-logout">
-                    <Link to="/"><button className="btn-logout" >Logout</button></Link>
+                    <button className="btn-logout" onClick={this.logout}>Logout</button>
                     </div>
                 </div>
 
