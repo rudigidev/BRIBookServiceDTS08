@@ -11,6 +11,7 @@ class DashboardBpba extends React.Component {
         super(props);
         this.state = {
         sessionLoginbpba: false,
+        test:true
         }
         this.logout = this.logout.bind(this);
     }

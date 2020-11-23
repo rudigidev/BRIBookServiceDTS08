@@ -31,22 +31,22 @@ class DashboardBpbaPbam extends React.Component {
                 console.log(this.state.dataGet)
                 console.log(this.state.inputCari)
                 let data = this.state.dataGet;
-                for(let m in data){
+                data.map((datas) => {
                  
                     htlmElement += `
                         <tr>
-                            <td>${data[m].id}</td>
-                            <td>${data[m].nama}</td>
+                            <td>${datas.id}</td>
+                            <td>${datas.nama}</td>
                             <td>********</td>
-                            <td>${data[m].email}</td>
-                            <td>${data[m].status}</td>
+                            <td>${datas.email}</td>
+                            <td>${datas.status}</td>
                             <td>
                                 <button className="btn-edit" id="btn-edit">Edit</button>
                             </td>
                         <tr>
                 `;
                 
-                }
+                });
                 document.getElementById('table-pcu').innerHTML = htlmElement; 
               }
               else {
@@ -102,22 +102,22 @@ class DashboardBpbaPbam extends React.Component {
             this.setState({dataGet:responseJSON.data})
             console.log(this.state.dataGet)
             let data = this.state.dataGet;
-            for(let m in data){
-             
+            data.map((datas) => {
+                 
                 htlmElement += `
                     <tr>
-                        <td>${data[m].id}</td>
-                        <td>${data[m].nama}</td>
+                        <td>${datas.id}</td>
+                        <td>${datas.nama}</td>
                         <td>********</td>
-                        <td>${data[m].email}</td>
-                        <td>${data[m].status}</td>
+                        <td>${datas.email}</td>
+                        <td>${datas.status}</td>
                         <td>
                             <button className="btn-edit" id="btn-edit">Edit</button>
                         </td>
                     <tr>
             `;
             
-            }
+            });
             document.getElementById('table-pcu').innerHTML = htlmElement; 
           }
           else {

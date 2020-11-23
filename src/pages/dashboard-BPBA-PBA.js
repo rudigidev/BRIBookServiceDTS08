@@ -31,23 +31,23 @@ class DashboardBpbaPba extends React.Component {
                 console.log(this.state.dataGet)
                 console.log(this.state.inputCari)
                 let data = this.state.dataGet;
-                for(let m in data){
-                 
+                data.map((datas) => {
+             
                     htlmElement += `
                         <tr>
-                            <td>${data[m].id}</td>
-                            <td>${data[m].nama}</td>
+                            <td>${datas.id}</td>
+                            <td>${datas.nama}</td>
                             <td>********</td>
-                            <td>${data[m].email}</td>
-                            <td>${data[m].managed_by}</td>
-                            <td>${data[m].status}</td>
+                            <td>${datas.email}</td>
+                            <td>${datas.assisted_by}</td>
+                            <td>${datas.status}</td>
                             <td>
                                 <button className="btn-edit" id="btn-edit">Edit</button>
                             </td>
                         <tr>
                 `;
                 
-                }
+                });
                 document.getElementById('table-pcu').innerHTML = htlmElement; 
               }
               else {
@@ -103,23 +103,23 @@ class DashboardBpbaPba extends React.Component {
             this.setState({dataGet:responseJSON.data})
             console.log(this.state.dataGet)
             let data = this.state.dataGet;
-            for(let m in data){
+            data.map((datas) => {
              
                 htlmElement += `
                     <tr>
-                        <td>${data[m].id}</td>
-                        <td>${data[m].nama}</td>
+                        <td>${datas.id}</td>
+                        <td>${datas.nama}</td>
                         <td>********</td>
-                        <td>${data[m].email}</td>
-                        <td>${data[m].assisted_by}</td>
-                        <td>${data[m].status}</td>
+                        <td>${datas.email}</td>
+                        <td>${datas.assisted_by}</td>
+                        <td>${datas.status}</td>
                         <td>
                             <button className="btn-edit" id="btn-edit">Edit</button>
                         </td>
                     <tr>
             `;
             
-            }
+            });
             document.getElementById('table-pcu').innerHTML = htlmElement; 
           }
           else {

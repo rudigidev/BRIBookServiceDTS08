@@ -1,17 +1,14 @@
 
-function PostDataBpba (type, DataUser) {
+function AddDataBpba (type) {
     let baseUrl = 'http://localhost:5000';
-    let token = sessionStorage.getItem('user');
 
     return new Promise ( (resolve, reject) => {
         fetch(baseUrl+type,{
-            method: 'POST',
+            method: 'GET',
             mode:'cors',
             credentials: 'same-origin',
-            body: JSON.stringify(DataUser),
             headers:{
-                'Content-Type':'application/json',
-                "Authorization" : `Bearer ${token}`
+                "Authorization" : `Bearer ${sessionStorage.getItem('user')}`
             }
         })
         .then((res) => res.json())
@@ -24,4 +21,4 @@ function PostDataBpba (type, DataUser) {
     })
 }
 
-export default PostDataBpba;
+export default AddDataBpba;

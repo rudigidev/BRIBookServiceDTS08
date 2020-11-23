@@ -429,5 +429,56 @@ input[type=text], select {
     opacity: 0.6;
 }    
                                                         /* dashboard edit data dan tambah data */
+                                                        /* Modal */
+.box{
+    display: none;
+    position: absolute;
+    z-index: 4;
+    width: 100%;
+    height: 100%;
+    background-color: gray;
+    opacity: 0.4;
+}
+.modal-tambah {
+    display: none;
+    box-sizing: border-box;
+    position: absolute;
+    z-index: 5;
+    /* border:1px solid red; */
+    width: 60%;
+    height: 100%;
+    box-sizing: border-box;
+    justify-content: center;
+    align-items: center;
+    margin-left: 20%;
+}
+.modal {
+    position: relative;
+    z-index: 9;
+    border: 2px solid #1A3783;
+    background-color: white;
+    border-radius: 20px;
+}
+.close {
+    color: #aaaaaa;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  #form-tambah-pcu{
+      padding-left: 30%;
+      padding-right: 30%;
+      padding-bottom: 20px;
+      padding-top: 20px;
+  }
+
+
+                                                        /* Modal */
 
                                                         /* Content */
