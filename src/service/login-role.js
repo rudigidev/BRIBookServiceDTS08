@@ -1,6 +1,6 @@
 
 function PostData (type, DataUser) {
-    let baseUrl = 'http://localhost:5000';
+    let baseUrl = 'http://3.136.86.135:5000';
 
     return new Promise ( (resolve, reject) => {
         fetch(baseUrl+type,{

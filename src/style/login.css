@@ -12,41 +12,40 @@
     height: auto;
     text-align: center;
     padding: 20px;
-    border-radius: 20px;
-    border: 3px solid #1A3783;
     box-shadow: 0px 0px 8px 1px rgba(107, 107, 107, 0.8);
     background-color: white;
 }
 .login-input-form {
-    border-radius: 17px;
+
     border: 2px solid;
     height: 40px;
-    width: 240px;
+    width: 230px;
     margin-top: 5px;
     margin-bottom: 5px;
-    border-color: hsl(223, 67%, 31%);
+    border-color: hsl(0, 0%, 73%);
     color: gray;
     padding-left: 20px;
-}
-input:active {
-    border: none;
+    opacity: 0.7;
+    color: #1A3783;
+    font-weight: bold;
 }
 .btn-login-masuk {
     width: 240px;
     color: white;
     background-color: #1A3783;
     border: none;
-    border-radius: 18px;
     height: 40px;
     font-size: 17px;
     margin-top: 10px;
     margin-bottom: 20px;
 }
 .btn-login-masuk:hover {
-    background-color: #1A3783;
-    opacity: 0.8;
-    border: 2px solid  #F07F06;
-    transition: 0.2s;
+    background-color: orange;
+    transition: 0.1s;
+}
+.btn-login-masuk:active{
+    opacity: 0.6;
+    border: none;
 }
 .lupa-password {
     text-decoration: none;

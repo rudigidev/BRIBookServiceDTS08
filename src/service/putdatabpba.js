@@ -1,13 +1,15 @@
 
-function AddDataBpba (type) {
-    let baseUrl = 'http://localhost:5000';
+function PutDataBpba (type, dataUser) {
+    let baseUrl = 'http://3.136.86.135:5000';
 
     return new Promise ( (resolve, reject) => {
         fetch(baseUrl+type,{
-            method: 'GET',
+            method: 'PUT',
             mode:'cors',
             credentials: 'same-origin',
+            body: JSON.stringify(dataUser),
             headers:{
+                'Content-Type':'application/json',
                 "Authorization" : `Bearer ${sessionStorage.getItem('user')}`
             }
         })
@@ -21,4 +23,4 @@ function AddDataBpba (type) {
     })
 }
 
-export default AddDataBpba;
+export default PutDataBpba;

@@ -1,6 +1,6 @@
 
 function PostDataBpba (type, DataUser) {
-    let baseUrl = 'http://localhost:5000';
+    let baseUrl = 'http://3.136.86.135:5000';
     let token = sessionStorage.getItem('user');
 
     return new Promise ( (resolve, reject) => {

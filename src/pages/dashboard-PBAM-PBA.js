@@ -4,8 +4,61 @@ import briwhite from '../img/logobriwhite.png';
 import profile from '../img/imgprofile.png';
 import * as Icon from 'react-bootstrap-icons';
 import {BrowserRouter as Router,Switch,Route,Link,useParams} from "react-router-dom";
+import GetDataBpba from '../service/getdatabpba';
 
 class DashboardPbamPba extends React.Component {
+    constructor(props){
+        super(props);
+        this.state = {
+        sessionLogina: false,
+        dataGet:[],
+            inputCari:'',
+            modalShow: false,
+            addData: {
+                email:'',
+                password:'',
+                nama:'',
+                alamat:'',
+                no_hp:'',
+                role:'',
+                status:''
+            },
+            editData: {
+                id:'',
+                email:'',
+                password:'',
+                nama:'',
+                alamat:'',
+                no_hp:'',
+                status:''
+            } ,
+            jumlahPcu:'',
+            jumlahPba:'',
+            jumlahPbam:'',
+            emailPassing:'',
+            editDataPassing:[]
+        }
+        this.logout = this.logout.bind(this);
+    }
+    componentDidMount(){
+        GetDataBpba('/pbam/manager/list-pba')
+            .then ((result) => {
+              let responseJSON = result;
+              if(responseJSON.data){
+                this.setState({dataGet:responseJSON.data, jumlahPba:responseJSON.data})
+                console.log(this.state.dataGet)
+                console.log(this.state.inputCari)
+            }
+              else {
+                console.log("get Error");
+              }
+            })//PostData
+    }
+    logout() {
+        sessionStorage.setItem('user','');
+        sessionStorage.clear();
+        this.setState({sessionLogina: true})
+    }
     render() {
         return(
             <div className="container">
@@ -27,7 +80,7 @@ class DashboardPbamPba extends React.Component {
                         </ul>
                     </div>
                     <div className="side-logout">
-                    <Link to="/"><button className="btn-logout" >Logout</button></Link>
+                    <Link to="/"><button className="btn-logout" onClick={this.logout}>Logout</button></Link>
                     </div>
                 </div>
 

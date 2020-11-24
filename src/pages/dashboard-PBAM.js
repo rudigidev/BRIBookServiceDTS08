@@ -4,14 +4,55 @@ import '../style/dashboard.css';
 import briwhite from '../img/logobriwhite.png';
 import profile from '../img/imgprofile.png';
 import * as Icon from 'react-bootstrap-icons';
+import GetDataBpba from '../service/getdatabpba';
 
 class DashboardPbam extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-        sessionLogina: false
+        sessionLogina: false,
+        dataGet:[],
+            inputCari:'',
+            modalShow: false,
+            addData: {
+                email:'',
+                password:'',
+                nama:'',
+                alamat:'',
+                no_hp:'',
+                role:'',
+                status:''
+            },
+            editData: {
+                id:'',
+                email:'',
+                password:'',
+                nama:'',
+                alamat:'',
+                no_hp:'',
+                status:''
+            } ,
+            jumlahPcu:'',
+            jumlahPba:'',
+            jumlahPbam:'',
+            emailPassing:'',
+            editDataPassing:[]
         }
         this.logout = this.logout.bind(this);
+    }
+    componentDidMount(){
+        GetDataBpba('/pbam/manager/list-pba')
+            .then ((result) => {
+              let responseJSON = result;
+              if(responseJSON.data){
+                this.setState({dataGet:responseJSON.data, jumlahPba:responseJSON.data})
+                console.log(this.state.dataGet)
+                console.log(this.state.inputCari)
+            }
+              else {
+                console.log("get Error");
+              }
+            })//PostData
     }
    
     logout() {
@@ -30,7 +71,7 @@ class DashboardPbam extends React.Component {
                     <div className="user-level"><h2>PBAM</h2></div>
                     <div className="user-profile">
                         <img src={profile} width="100" height="100" alt="profile"/>
-                        <h3>Rudi Giyarto</h3>
+                        <h3>{localStorage.getItem('whoUser')}</h3>
                     </div>
                     <div className="side-bri-logowhite">
                         <img src={briwhite} width="200" height="120" alt="briwhite"/>
@@ -48,7 +89,7 @@ class DashboardPbam extends React.Component {
                 </div>
 
                 <div className="main-menu">
-
+        
                     <div className="row">
                         <div className="col1">
                             <div className="icon-user">
@@ -58,7 +99,7 @@ class DashboardPbam extends React.Component {
                         <div className="col2">
                             <div className="level-user">PBA</div>
                         </div>
-                        <div className="col3">10 PBA</div>
+                        <div className="col3">{this.state.jumlahPba.length} PBA</div>
                     </div>
 
                     <div className="row">

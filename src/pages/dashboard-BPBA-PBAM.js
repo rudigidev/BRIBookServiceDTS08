@@ -5,24 +5,59 @@ import briwhite from '../img/logobriwhite.png';
 import profile from '../img/imgprofile.png';
 import * as Icon from 'react-bootstrap-icons';
 import GetDataBpba from '../service/getdatabpba';
+import PosDataBpba from '../service/postdatabpba';
+import PutDataBpba from '../service/putdatabpba';
 
-class DashboardBpbaPbam extends React.Component {
+class DashboardBpbaPba extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             sessionLoginbpba: false,
             dataGet:[],
-            inputCari:''
+            inputCari:'',
+            modalShow: false,
+            addData: {
+                email:'',
+                password:'',
+                nama:'',
+                alamat:'',
+                no_hp:'',
+                role:'',
+                status:''
+            },
+            editData: {
+                id:'',
+                email:'',
+                password:'',
+                nama:'',
+                alamat:'',
+                no_hp:'',
+                status:''
+            } ,
+            jumlahPcu:'',
+            jumlahPba:'',
+            jumlahPbam:'',
+            emailPassing:'',
+            editDataPassing:[]
         }
         this.logout = this.logout.bind(this);
         this.cariData = this.cariData.bind(this);
         this.onChange = this.onChange.bind(this);
-        this.testBtn = this.testBtn.bind(this);
+        this.closeBtnModalTambah = this.closeBtnModalTambah.bind(this);
+        this.modalTambahShow = this.modalTambahShow.bind(this);
         this.componentDidMount = this.componentDidMount.bind(this);
+        this.onChanges = this.onChanges.bind(this);
+        this.tambahData = this.tambahData.bind(this);
+        this.modalEditDataShow = this.modalEditDataShow.bind(this);
+        this.closeBtnModalEdit = this.closeBtnModalEdit.bind(this);
+        this.editDataByEmail = this.editDataByEmail.bind(this);
+        this.updateData = this.updateData.bind(this);
+        this.onEdit= this.onEdit.bind(this);
+        this.onLoad = this.onLoad.bind(this);
+        this.test = this.test.bind(this);
       
     }
     componentDidMount(){
-            let htlmElement = ''
             GetDataBpba('/bpba/admin/find-by-role/pbam')
             .then ((result) => {
               let responseJSON = result;
@@ -30,100 +65,142 @@ class DashboardBpbaPbam extends React.Component {
                 this.setState({dataGet:responseJSON.data})
                 console.log(this.state.dataGet)
                 console.log(this.state.inputCari)
-                let data = this.state.dataGet;
-                data.map((datas) => {
-                 
-                    htlmElement += `
-                        <tr>
-                            <td>${datas.id}</td>
-                            <td>${datas.nama}</td>
-                            <td>********</td>
-                            <td>${datas.email}</td>
-                            <td>${datas.status}</td>
-                            <td>
-                                <button className="btn-edit" id="btn-edit">Edit</button>
-                            </td>
-                        <tr>
-                `;
-                
-                });
-                document.getElementById('table-pcu').innerHTML = htlmElement; 
-              }
+            }
               else {
                 console.log("get Error");
               }
             })//PostData
-    }
-    testBtn(){
-       let tambahForm = '';
-       tambahForm += `
-            <div className="form-tambah-edit-data" id="form-tambah">
-                <h2 className="title">Tambah Data ( PCU )</h2>
-                <label for="name">Nama PCU</label>
-                <input type="text" id="name" name="firstname" placeholder="Nama PCU"/>
 
-                <label for="username">Username</label>
-                <input type="text" id="lname" name="username" placeholder="Username"/>
+            GetDataBpba('/bpba/admin/find-by-role/pcu')
+            .then ((result) => {
+              let responseJSON = result;
+              if(responseJSON.data){
+                this.setState({jumlahPcu:responseJSON.data})
+            }
+              else {
+                console.log("get Error");
+              }
+            })//PostData
 
-                <label for="password">Password</label>
-                <input type="text" id="lname" name="password" placeholder="Password"/>
+            GetDataBpba('/bpba/admin/find-by-role/pba')
+            .then ((result) => {
+              let responseJSON = result;
+              if(responseJSON.data){
+                this.setState({jumlahPba:responseJSON.data})
+            }
+              else {
+                console.log("get Error");
+              }
+            })//PostData
 
-                <label for="email">Email</label>
-                <input type="text" id="lname" name="email" placeholder="Email"/>
-
-                <label for="PBA">PBA</label>
-                <select id="country" name="PBA">
-                    <option value="">Pilih PBA</option>
-                    <option value="1">Revi Mariska</option>
-                    <option value="2">Danang Mulyo</option>
-                    <option value="3">Ananda Rizky</option>
-                </select>
-                <label for="status">Status</label>
-                <select id="country" name="status">
-                    <option value="">Status</option>
-                    <option value="1">Aktif</option>
-                    <option value="2">Disabled</option>
-                </select>
+            GetDataBpba('/bpba/admin/find-by-role/pbam')
+            .then ((result) => {
+              let responseJSON = result;
+              if(responseJSON.data){
+                this.setState({jumlahPbam:responseJSON.data})
+            }
+              else {
+                console.log("get Error");
+              }
+            })//PostData
             
-                <button className="btn-tambah" id="btn-tambah-data">Tambah</button>
-                <button className="btn-batal" id="btn-batal-data" onClick="${this.componentDidMount}">Batal</button>
-                    
-            </div>
-
-       `;
-        document.getElementById('tempatdata').innerHTML= tambahForm;
+    }
+    modalTambahShow() {
+        const box = document.getElementById('box');
+        const modal = document.getElementById('modals');
+        box.style.display= "block";
+        modal.style.display= "flex";
+    }
+    closeBtnModalTambah(){
+      const box = document.getElementById('box');
+      const modal = document.getElementById('modals');
+      box.style.display= "none";
+      modal.style.display= "none";
+    }
+    test(a) {
+        const box = document.getElementById('box-edit');
+        const modal = document.getElementById('modals-edit');
+        box.style.display= "block";
+        modal.style.display= "flex";
+        GetDataBpba(`/bpba/admin/find-by-email/${a.target.value}`)
+        .then ((result) => {
+          let responseJSON = result;
+          if(responseJSON.data){
+            this.setState({editDataPassing:responseJSON.data})
+            console.log(this.state.editDataPassing)
+        }
+          else {
+            console.log("get Error");
+          }
+        })//PostData
+    }
+    modalEditDataShow() {
+        const box = document.getElementById('box-edit');
+        const modal = document.getElementById('modals-edit');
+        box.style.display= "block";
+        modal.style.display= "flex";
+        console.log(this.state.emailPassing)
+    }
+    closeBtnModalEdit(){
+        const boxs = document.getElementById('box-edit');
+        const modals = document.getElementById('modals-edit');
+        boxs.style.display= "none";
+        modals.style.display= "none";
+      }
+    tambahData() {
+        console.log(this.state.addData)
+        PosDataBpba('/bpba/admin/add/pbam',this.state.addData).then ((result) => {
+            let responseJSON = result;
+            console.log(responseJSON);
+            this.closeBtnModalTambah()
+            this.componentDidMount()
+            if(responseJSON.message){
+                console.log('Data Berhasil Disimpan')
+            }
+            else {
+            console.log("Login Error");
+            }
+        })
     }
     cariData() {
-        let htlmElement = ''
         GetDataBpba(`/bpba/admin/find-by-name/${this.state.inputCari}`)
         .then ((result) => {
           let responseJSON = result;
           if(responseJSON.data){
             this.setState({dataGet:responseJSON.data})
             console.log(this.state.dataGet)
-            let data = this.state.dataGet;
-            data.map((datas) => {
-                 
-                htlmElement += `
-                    <tr>
-                        <td>${datas.id}</td>
-                        <td>${datas.nama}</td>
-                        <td>********</td>
-                        <td>${datas.email}</td>
-                        <td>${datas.status}</td>
-                        <td>
-                            <button className="btn-edit" id="btn-edit">Edit</button>
-                        </td>
-                    <tr>
-            `;
-            
-            });
-            document.getElementById('table-pcu').innerHTML = htlmElement; 
           }
           else {
             console.log("get Error");
           }
         })//PostData
+    }
+    editDataByEmail() {
+        GetDataBpba(`/bpba/admin/find-by-email/${this.state.emailPassing}`)
+            .then ((result) => {
+              let responseJSON = result;
+              if(responseJSON.data){
+                this.setState({jumlahPcu:responseJSON.data})
+                console.log(responseJSON.data)
+            }
+              else {
+                console.log("get Error");
+              }
+            })//PostData
+    }
+    updateData() {
+        console.log(this.state.editData)
+        PutDataBpba('/bpba/admin/update',this.state.editData)
+        .then ( (result) => {
+            let responseJSON = result;
+            if(responseJSON){
+                console.log(responseJSON)
+                this.componentDidMount()
+                this.closeBtnModalEdit()
+            }else{
+                console.log('get error')
+            }
+        })
     }
 
     logout() {
@@ -131,6 +208,30 @@ class DashboardBpbaPbam extends React.Component {
         sessionStorage.clear();
         this.setState({sessionLoginbpba: true})
         
+    }
+    onLoad(e){
+        this.setState(prevState => ({
+            editData:{
+            ...prevState.editData,
+            [this.state.editData.id] : "test"
+        }
+        }))
+    }
+    onEdit(e){
+        this.setState(prevState => ({
+            editData:{
+            ...prevState.editData,
+            [e.target.name] : e.target.value
+        }
+        }))
+    }
+    onChanges(a) {
+        this.setState(prevState => ({
+            addData:{
+            ...prevState.addData,
+            [a.target.name] : a.target.value
+        }
+        }))
     }
     onChange(e) {
         if(e.target.value === ''){
@@ -146,6 +247,99 @@ class DashboardBpbaPbam extends React.Component {
         }
         return(
             <div className="container">
+                    <div className="box" id="box"></div>
+                    <div className="box" id="box-edit"></div>
+
+                    <div className="modal-tambah" id="modals">
+                        <div id="myModal" className="modal">
+                            <div className="modal-content">
+
+                                <div className="form-tambah-data" id="form-tambah-pcu">
+                                    <h2 className="title">Tambah Data ( PBAM )</h2>
+                                    <label htmlFor="name">Nama PBAM</label>
+                                    <input type="text" id="name" name="nama" placeholder="Nama PBA"  onChange={this.onChanges}/>
+
+                                    <label htmlFor="email">Email</label>
+                                    <input type="text" id="lname" name="email" placeholder="Email" onChange={this.onChanges}/>
+
+                                    <label htmlFor="password">Password</label>
+                                    <input type="text" id="lname" name="password" placeholder="Password" onChange={this.onChanges}/>
+
+                                    <label htmlFor="no_hp">Nomor Telepon</label>
+                                    <input type="text" id="lname" name="no_hp" placeholder="Nomor Telepon" onChange={this.onChanges}/>
+                                    
+                                    <label htmlFor="role">Role</label>
+                                    <select id="country" name="role" onChange={this.onChanges}>
+                                        <option value="">Role</option>
+                                        <option value="pba">PBA</option>
+                                    </select>
+
+                                    <label htmlFor="alamat">Alamat</label>
+                                    <input type="text" id="lname" name="alamat" placeholder="Alamat" onChange={this.onChanges}/>
+
+                                    <label htmlFor="status">Status</label>
+                                    <select id="country" name="status" onChange={this.onChanges}>
+                                        <option value="">Status</option>
+                                        <option value="enable">Enable</option>
+                                        <option value="disable">Disable</option>
+                                    </select>
+                                
+                                    <button className="btn-tambah" onClick={this.tambahData}>Tambah
+                                    </button>
+                                    <button className="btn-batal" onClick={this.closeBtnModalTambah}>Batal</button>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="modal-tambah" id="modals-edit">
+                        <div id="myModal" className="modal">
+                            <div className="modal-content">
+
+                                    {
+                                        this.state.editDataPassing.map( (m) => (
+                                            <div className="form-tambah-data" id="form-tambah-pcu" key={m.id}>
+                                                <h2 className="title">Edit Data ( PBAM )</h2>
+                                            
+                                                <label htmlFor="id">Id</label>
+                                                <input type="text" name="id" defaultValue={m.id} onMouseOver={this.onEdit}/>
+
+                                                <label htmlFor="nama">Nama PBAM</label>
+                                                <input type="text" id="name" name="nama" placeholder="Nama PBAM" onMouseOver={this.onEdit} defaultValue={m.nama}/>
+
+                                                <label htmlFor="email">Email</label>
+                                                <input type="text" id="lname" name="email" placeholder="Email" onMouseOver={this.onEdit} defaultValue={m.email}/>
+
+                                                <label htmlFor="password">Password</label>
+                                                <input type="text" id="lname" name="password" placeholder="Password" onMouseOver={this.onEdit} defaultValue={m.password}/>
+
+                                                <label htmlFor="no_hp">Nomor Telepon</label>
+                                                <input type="text" id="lname" name="no_hp" placeholder="Nomor Telepon" onMouseOver={this.onEdit} defaultValue={m.no_hp}/>
+
+                                                <label htmlFor="alamat">Alamat</label>
+                                                <input type="text" id="lname" name="alamat" placeholder="Alamat" onMouseOver={this.onEdit} defaultValue={m.alamat}/>
+
+                                                <label htmlFor="status">Status</label>
+                                                <select id="country" name="status" onMouseOver={this.onEdit}>
+                                                    <option defaultValue={m.status}>{m.status}</option>
+                                                    <option value="enable">Enable</option>
+                                                    <option value="disable">Disable</option>
+                                                </select>
+                                            
+                                                <button className="btn-tambah" onClick={this.updateData}>Update</button>
+                                                <button className="btn-batal" onClick={this.closeBtnModalEdit}>Batal</button>
+                                               
+                                            </div>
+                                        ))
+                                    }
+
+                                
+
+                            </div>
+                        </div>
+                    </div>
+
                 
                 <div className="side-menu">
                     <div className="user-level"><h2>BPBA</h2></div>
@@ -179,7 +373,7 @@ class DashboardBpbaPbam extends React.Component {
                         <div className="col2">
                             <div className="level-user">PCU</div>
                         </div>
-                        <div className="col3">Total User : 40 Nasabah</div>
+                        <div className="col3">Total User : {this.state.jumlahPcu.length} Nasabah</div>
                     </div>
 
                     <div className="row">
@@ -191,7 +385,7 @@ class DashboardBpbaPbam extends React.Component {
                         <div className="col2">
                             <div className="level-user">PBA</div>
                         </div>
-                        <div className="col3">Total User : 40 Staff</div>
+                        <div className="col3">Total User :  {this.state.jumlahPba.length} Staff</div>
                     </div>
                     
                     <div className="row">
@@ -203,15 +397,19 @@ class DashboardBpbaPbam extends React.Component {
                         <div className="col2">
                             <div className="level-user">PBAM</div>
                         </div>
-                        <div className="col3">Total User : 40 Manager</div>
+                        <div className="col3">Total User :  {this.state.jumlahPbam.length} Manager</div>
                     </div>
+                    
+                    
+
                     {/* Data Passing Disini */}
                     <div className="row2">
                         <div className="col4" id="tempatdata">
+
                         <div className="tabel-user-data">
-                                <h2>Data Manager PBA ( PBAM )</h2>
-                                <button className="btn-plus" onClick={this.testBtn}>+</button>
-                            <input type="search" className="search-form" onChange={this.onChange}/><span><button className="btn-edit" onClick={this.cariData} >Cari</button></span>
+                                <h2>Data Personal Banking Manager ( PBAM )</h2>
+                                <button className="btn-plus" onClick={this.modalTambahShow}>+</button>
+                            <input type="search" placeholder="Masukan Nama" className="search-form" onChange={this.onChange}/><span><button className="btn-edit" onClick={this.cariData} >Cari</button></span>
                             <table className="table-data-user" >
                             <thead>
                                 <tr>
@@ -219,12 +417,24 @@ class DashboardBpbaPbam extends React.Component {
                                     <th>Nama</th>
                                     <th>Password</th>
                                     <th>Email</th>
+                                    <th>Alamat</th>
                                     <th>Status</th>
                                     <th>Opsi</th>
                                 </tr>
                             </thead>
                             <tbody id="table-pcu">
-
+                               {this.state.dataGet.map((data) => (
+                                    <tr key={data.id}>
+                                        <td>{data.id}</td>
+                                        <td>{data.nama}</td>
+                                        <td>********</td>
+                                        <td>{data.email}</td>
+                                        <td>{data.alamat}</td>
+                                        <td>{data.status}</td>
+                                        <td><button className="btn-edit" onClick={this.test} name="emailPassing" value={data.email} id="btn-edit-table">Edit</button></td>
+                                    </tr>  
+                         
+                               ))}
                             </tbody>
                     </table>
                 </div>
@@ -240,5 +450,4 @@ class DashboardBpbaPbam extends React.Component {
     }
 }
 
-
-export default DashboardBpbaPbam;
+export default DashboardBpbaPba;

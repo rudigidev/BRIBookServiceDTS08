@@ -4,18 +4,57 @@ import '../style/dashboard.css';
 import briwhite from '../img/logobriwhite.png';
 import profile from '../img/imgprofile.png';
 import * as Icon from 'react-bootstrap-icons';
-import PostDataBpba from '../service/postdatabpba';
+import GetDataBpba from '../service/getdatabpba';
 
 class DashboardBpba extends React.Component {
     constructor(props){
         super(props);
         this.state = {
         sessionLoginbpba: false,
-        test:true
+        jumlahPcu:'',
+        jumlahPba:'',
+        jumlahPbam:''
         }
         this.logout = this.logout.bind(this);
+        this.first = this.first.bind(this);
     }
+    componentDidMount(){
+        this.first();
+    }
+    first(){
+        GetDataBpba('/bpba/admin/find-by-role/pcu')
+            .then ((result) => {
+              let responseJSON = result;
+              if(responseJSON.data){
+                this.setState({jumlahPcu:responseJSON.data})
+            }
+              else {
+                console.log("get Error");
+              }
+            })//PostData
 
+            GetDataBpba('/bpba/admin/find-by-role/pba')
+            .then ((result) => {
+              let responseJSON = result;
+              if(responseJSON.data){
+                this.setState({jumlahPba:responseJSON.data})
+            }
+              else {
+                console.log("get Error");
+              }
+            })//PostData
+
+            GetDataBpba('/bpba/admin/find-by-role/pbam')
+            .then ((result) => {
+              let responseJSON = result;
+              if(responseJSON.data){
+                this.setState({jumlahPbam:responseJSON.data})
+            }
+              else {
+                console.log("get Error");
+              }
+            })//PostData
+    }
     logout() {
         sessionStorage.setItem('user','');
         sessionStorage.clear();
@@ -64,7 +103,7 @@ class DashboardBpba extends React.Component {
                         <div className="col2">
                             <div className="level-user">PCU</div>
                         </div>
-                        <div className="col3">Total User : 40 Nasabah</div>
+                        <div className="col3">Total User : {this.state.jumlahPcu.length} Nasabah</div>
                     </div>
 
                     <div className="row">
@@ -76,7 +115,7 @@ class DashboardBpba extends React.Component {
                         <div className="col2">
                             <div className="level-user">PBA</div>
                         </div>
-                        <div className="col3">Total User : 40 Staff</div>
+                        <div className="col3">Total User : {this.state.jumlahPba.length} Staff</div>
                     </div>
                     
                     <div className="row">
@@ -88,7 +127,7 @@ class DashboardBpba extends React.Component {
                         <div className="col2">
                             <div className="level-user">PBAM</div>
                         </div>
-                        <div className="col3">Total User : 40 Manager</div>
+                        <div className="col3">Total User : {this.state.jumlahPbam.length} Manager</div>
                     </div>
                     
 
